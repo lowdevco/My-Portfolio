@@ -1,5 +1,17 @@
 import React from "react";
 import Slider from "react-slick";
+import { FaReact } from "react-icons/fa";
+import { DiNodejsSmall } from "react-icons/di";
+import { VscVscode } from "react-icons/vsc";
+import {
+  SiPython,
+  SiTailwindcss,
+  SiJavascript,
+  SiGit,
+  SiBootstrap,
+  SiPostman,
+  SiFigma,
+} from "react-icons/si";
 
 
 import "slick-carousel/slick/slick.css";
@@ -31,21 +43,19 @@ function Skill() {
   };
 
   const skills = [
-    { name: "React", icon: `⚛️` },
-    { name: "Node.js", icon: "🟢" },
-    { name: "Python", icon: "🐍" },
-    { name: "Tailwind", icon: "🌊" },
-    { name: "JavaScript", icon: "📜" },
-    { name: "MongoDB", icon: "🍃" },
+    { name: "React", icon: <FaReact className="text-white" /> },
+    { name: "Node.js", icon: <DiNodejsSmall className="text-white" /> },
+    { name: "Python", icon: <SiPython className="text-white" /> },
+    { name: "Tailwind", icon: <SiTailwindcss className="text-white" /> },
+    { name: "JavaScript", icon: <SiJavascript className="text-white" /> },
   ];
 
   const tools = [
-    { name: "Git", icon: "🔧" },
-    { name: "Bootstrap", icon: "🐳" },
-    { name: "VS Code", icon: "🖥️" },
-    { name: "Postman", icon: "📬" },
-    { name: "Figma", icon: "🎨" },
-    { name: "Vite", icon: "💳" },
+    { name: "Git", icon: <SiGit className="text-white" /> },
+    { name: "Bootstrap", icon: <SiBootstrap className="text-white" /> },
+    { name: "VS Code", icon: <VscVscode className="text-white" /> },
+    { name: "Postman", icon: <SiPostman className="text-white" /> },
+    { name: "Figma", icon: <SiFigma className="text-white" /> },
   ];
 
   return (

@@ -8,6 +8,10 @@
   color: white;
 }
 
+body{
+  background-color:black;
+}
+
 * a{
   tetx-decoration: none;
   color: white;

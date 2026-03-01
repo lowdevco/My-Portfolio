@@ -42,7 +42,7 @@ function Project() {
         "A high-performance personal portfolio built with Vite, featuring custom 3D animations and WebGL backgrounds.",
       tags: ["React", "Tailwind CSS", "Vite", "React Bit"],
       github: "https://github.com/lowdevco/My-Portfolio ",
-      link: "https://lowdevco.github.io/Wheather/",
+      link: "https://portfolio-lilac-psi-20.vercel.app/",
       image: portfolio,
     },
   ];
