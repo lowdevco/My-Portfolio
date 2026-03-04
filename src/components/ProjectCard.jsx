@@ -10,7 +10,7 @@ function ProjectCard({ title, description, tags, link, github, image }) {
     const x = e.clientX - card.left - card.width / 2;
     const y = e.clientY - card.top - card.height / 2;
 
-    // Smooth tilt calculation
+  
     setRotate({ x: y / -20, y: x / 20 });
   };
 
@@ -27,7 +27,7 @@ function ProjectCard({ title, description, tags, link, github, image }) {
           transformStyle: "preserve-3d",
         }}
       >
-        {/* Project Image Container */}
+       
         <div
           className="w-full h-48 bg-black/50 rounded-2xl mb-6 overflow-hidden border border-white/5"
           style={{ transform: "translateZ(20px)" }}
@@ -39,14 +39,12 @@ function ProjectCard({ title, description, tags, link, github, image }) {
           />
         </div>
 
-        {/* Content Section */}
         <div style={{ transform: "translateZ(40px)" }}>
           <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
           <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
             {description}
           </p>
 
-          {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-6">
             {tags.map((tag, i) => (
               <span
@@ -58,7 +56,6 @@ function ProjectCard({ title, description, tags, link, github, image }) {
             ))}
           </div>
 
-          {/* Action Buttons */}
           <div className="grid grid-cols-2 gap-3 mt-auto">
             <a
               href={github}

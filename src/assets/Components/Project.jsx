@@ -2,13 +2,15 @@ import React from "react";
 import "../css/project.css";
 import ProjectCard from "@/components/ProjectCard";
 import promyc from "../image/project/promyc.png"
-import portfolio from "../image/project/portfolio.png"
+import MovieBox from "../image/project/movie.png"
 import weather from "../image/project/weather.png"
 import orgado from "../image/project/orgado.png"
 
 function Project() {
   const myProjects = [
+  
     // To add projects add another Object
+
     {
       title: "Orgado E-Commerce",
       description:
@@ -31,19 +33,19 @@ function Project() {
       title: "Pro MYC",
       description:
         "Pro-myc, is a professional multi-section landing page for a biotech-driven vegan mycoprotein ingredient. It features a modern, high-contrast aesthetic designed to showcase sustainable food technology.",
-      tags: ["HTML", "Bootstrap"],
+      tags: ["HTML", "Bootstrap","CSS"],
       github: "https://github.com/lowdevco/Pro-myc",
       link: "#https://lowdevco.github.io/Pro-myc/",
       image: promyc,
     },
     {
-      title: "Portfolio",
+      title: "Movie Box",
       description:
-        "A high-performance personal portfolio built with Vite, featuring custom 3D animations and WebGL backgrounds.",
-      tags: ["React", "Tailwind CSS", "Vite", "React Bit"],
-      github: "https://github.com/lowdevco/My-Portfolio ",
-      link: "https://portfolio-lilac-psi-20.vercel.app/",
-      image: portfolio,
+        "A sleek movie discovery application built with React and Vite, featuring live OMDb API search and a modern glassmorphic interface.",
+      tags: ["React", "JS", "Vite", "API"],
+      github: "https://github.com/lowdevco/Movie-Box",
+      link: "https://movie-box-kappa-sand.vercel.app/",
+      image: MovieBox,
     },
   ];
 
