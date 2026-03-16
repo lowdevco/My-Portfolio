@@ -1,9 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import { SiGithub, SiLinkedin, SiInstagram, SiGmail } from "react-icons/si";
 import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import "../css/contact.css";
 
 function Contact() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState({
+    submitting: false,
+    info: { error: false, msg: null },
+  });
+
+ 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ submitting: true, info: { error: false, msg: null } });
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({
+          submitting: false,
+          info: { error: false, msg: "Message sent successfully!" },
+        });
+      
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus({
+          submitting: false,
+          info: { error: true, msg: data.error || "Something went wrong." },
+        });
+      }
+    } catch (error) {
+      setStatus({
+        submitting: false,
+        info: { error: true, msg: "Failed to connect to the server." },
+      });
+    }
+  };
+
   const contactInfo = [
     {
       icon: <SiGmail className="text-[#ffffff]" />,
@@ -61,65 +118,88 @@ function Contact() {
 
           <div className="flex gap-4 mt-10">
             {[
-              { icon: <SiGithub />, link: "https://github.com/muhammadirfan" }, //
+              { icon: <SiGithub />, link: "https://github.com/muhammadirfan" },
               {
                 icon: <SiLinkedin />,
                 link: "https://linkedin.com/in/muhammadirfan",
-              }, //
+              },
               { icon: <SiInstagram />, link: "https://instagram.com" },
-            ].map(
-              (
-                { icon, link },
-                i, 
-              ) => (
-                <a
-                  key={i}
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-transform hover:scale-110"
+            ].map(({ icon, link }, i) => (
+              <a
+                key={i}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-transform hover:scale-110"
+              >
+                <button
+                  type="button"
+                  className="p-4 rounded-xl bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg text-2xl"
                 >
-                  <button
-                    type="button"
-                    className="p-4 rounded-xl bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg text-2xl"
-                  >
-                    {icon}
-                  </button>
-                </a>
-              ),
-            )}
+                  {icon}
+                </button>
+              </a>
+            ))}
           </div>
         </div>
 
-       
         <div className="bg-gray-900/60 border border-white/10 p-8 rounded-[2.5rem] backdrop-blur-xl shadow-2xl">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 gap-4">
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Name"
+                required
                 className="bg-white/5 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-purple-500 transition-colors"
               />
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Email"
+                required
                 className="bg-white/5 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-purple-500 transition-colors"
               />
             </div>
             <input
               type="text"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
               placeholder="Subject"
+              required
               className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-purple-500 transition-colors"
             />
             <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
               placeholder="Message"
+              required
               rows="5"
               className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-purple-500 transition-colors resize-none"
             ></textarea>
 
-            <button className="w-full py-4 bg-purple-700 hover:bg-purple-600 text-white font-bold rounded-xl shadow-[0_0_20px_rgba(126,34,206,0.3)] transition-all active:scale-[0.98]">
-              Send Message
+            <button
+              type="submit"
+              disabled={status.submitting}
+              className={`w-full py-4 bg-purple-700 hover:bg-purple-600 text-white font-bold rounded-xl shadow-[0_0_20px_rgba(126,34,206,0.3)] transition-all active:scale-[0.98] ${status.submitting ? "opacity-70 cursor-not-allowed" : ""}`}
+            >
+              {status.submitting ? "Sending..." : "Send Message"}
             </button>
+
+            
+            {status.info.msg && (
+              <div
+                className={`mt-4 text-center p-3 rounded-lg ${status.info.error ? "bg-red-500/20 text-red-300" : "bg-green-500/20 text-green-300"}`}
+              >
+                {status.info.msg}
+              </div>
+            )}
           </form>
         </div>
       </div>

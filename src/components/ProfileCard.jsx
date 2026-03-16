@@ -11,7 +11,7 @@ function ProfileCard() {
     const centerX = card.width / 2;
     const centerY = card.height / 2;
 
-    // Same broad tilt logic as your project cards
+  
     const rotateX = (y - centerY) / 20;
     const rotateY = (centerX - x) / 20;
 

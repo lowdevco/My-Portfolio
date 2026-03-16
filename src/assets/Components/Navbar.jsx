@@ -18,7 +18,7 @@ function Navbar() {
 
   return (
     <nav
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-[1000] w-[90%] max-w-5xl 
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-1000 w-[90%] max-w-5xl 
                     h-16 px-8 flex items-center justify-between
                     bg-gray-900/40 backdrop-blur-md border border-white/10 
                     rounded-2xl shadow-2xl transition-all duration-300"
@@ -46,7 +46,7 @@ function Navbar() {
 
       {/* Hamburger Icon Mobile Version */}
       <button
-        className="md:hidden flex flex-col gap-1.5 p-2 z-[1001]"
+        className="md:hidden flex flex-col gap-1.5 p-2 z-1001"
         onClick={() => setIsOpen(!isOpen)} 
       >
         <span
