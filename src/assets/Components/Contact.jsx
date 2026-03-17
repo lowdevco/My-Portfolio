@@ -67,6 +67,8 @@ function Contact() {
     }
   };
 
+  
+
   const contactInfo = [
     {
       icon: <SiGmail className="text-[#ffffff]" />,
