@@ -3,23 +3,33 @@ from flask_cors import CORS
 from flask_mail import Mail, Message
 import os
 
-app = Flask(__name__)
-CORS(app)  
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
+app = Flask(__name__)
+
+ALLOWED_ORIGINS = ["https://portfolio-lilac-psi-20.vercel.app"]
+CORS(app, resources={r"/api/*": {"origins": ALLOWED_ORIGINS}})
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = 'muhammadirfank2007@gmail.com' 
-app.config['MAIL_PASSWORD'] = '*********'
-app.config['MAIL_DEFAULT_SENDER'] = 'muhammadirfank2007@gmail.com'
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
 
 mail = Mail(app)
 
 
 @app.route('/api/contact', methods=['POST'])
 def contact():
-    data = request.get_json()
+    data = request.get_json(silent=True)
+
+    if not data:
+        return jsonify({'error': 'Invalid JSON request'}), 400
 
     name = data.get('name')
     email = data.get('email')
@@ -32,14 +42,16 @@ def contact():
     try:
         msg = Message(
             subject=f"Portfolio Contact: {subject}",
-            recipients=['muhammadirfank2007@gmail.com'],
-            body=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message_body}"
+            recipients=[os.environ.get('MAIL_USERNAME')],
+            body=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message_body}",
+            reply_to=email  
         )
         mail.send(msg)
         return jsonify({'success': 'Message sent successfully!'}), 200
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        print(f"Server Error: {e}")
+        return jsonify({'error': 'Failed to send message.'}), 500
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(port=5000)

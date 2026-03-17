@@ -4,19 +4,18 @@ import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import "../css/contact.css";
 
 function Contact() {
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+
   const [status, setStatus] = useState({
     submitting: false,
     info: { error: false, msg: null },
   });
 
- 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -45,8 +44,12 @@ function Contact() {
           submitting: false,
           info: { error: false, msg: "Message sent successfully!" },
         });
-      
+
         setFormData({ name: "", email: "", subject: "", message: "" });
+
+        setTimeout(() => {
+          setStatus((prev) => ({ ...prev, info: { error: false, msg: null } }));
+        }, 3000);
       } else {
         setStatus({
           submitting: false,
@@ -56,7 +59,10 @@ function Contact() {
     } catch (error) {
       setStatus({
         submitting: false,
-        info: { error: true, msg: "Failed to connect to the server." },
+        info: {
+          error: true,
+          msg: "Failed to connect to the server. Make sure the backend is running.",
+        },
       });
     }
   };
@@ -195,7 +201,7 @@ function Contact() {
             
             {status.info.msg && (
               <div
-                className={`mt-4 text-center p-3 rounded-lg ${status.info.error ? "bg-red-500/20 text-red-300" : "bg-green-500/20 text-green-300"}`}
+                className={`mt-4 text-center p-3 rounded-lg font-medium transition-all duration-300 ${status.info.error ? "bg-red-500/20 text-red-400 border border-red-500/30" : "bg-green-500/20 text-green-400 border border-green-500/30"}`}
               >
                 {status.info.msg}
               </div>
