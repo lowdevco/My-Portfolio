@@ -124,7 +124,7 @@ function Contact() {
             ))}
           </div>
 
-          <div className="flex gap-4 mt-10">
+          <div className="flex gap-4 mt-10 justify-center lg:justify-start">
             {[
               { icon: <SiGithub />, link: "https://github.com/muhammadirfan" },
               {

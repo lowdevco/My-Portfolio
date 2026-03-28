@@ -8,7 +8,6 @@ import orgado from "../image/project/orgado.png"
 
 function Project() {
   const myProjects = [
-  
     // To add projects add another Object
 
     {
@@ -33,9 +32,9 @@ function Project() {
       title: "Pro MYC",
       description:
         "Pro-myc, is a professional multi-section landing page for a biotech-driven vegan mycoprotein ingredient. It features a modern, high-contrast aesthetic designed to showcase sustainable food technology.",
-      tags: ["HTML", "Bootstrap","CSS"],
+      tags: ["HTML", "Bootstrap", "CSS"],
       github: "https://github.com/lowdevco/Pro-myc",
-      link: "#https://lowdevco.github.io/Pro-myc/",
+      link: "https://lowdevco.github.io/Pro-myc/",
       image: promyc,
     },
     {

@@ -3,15 +3,15 @@ import React from "react";
 function ExperienceItem({ company, role, duration, description, skills }) {
   return (
     <div className="relative pl-8 pb-12 group">
-      {/* Line Connect  */}
+      {/* Line Connect For Experience */}
 
       <div className="absolute left-0 top-0 h-full w-[2px] bg-gray-800 group-last:h-2" />
 
-      {/* Dot  */}
+      {/* Dot For Experience */}
 
       <div className="absolute left-[-4px] top-0 h-[10px] w-[10px] rounded-full bg-purple-600 shadow-[0_0_10px_rgba(147,51,234,0.8)] border-2 border-white group-hover:scale-125 transition-transform duration-300" />
 
-      {/*  CONTENT */}
+      {/*  CONTENTS for Experience */}
 
       <div className="flex flex-col gap-1">
         <span className="text-purple-500 font-mono text-sm font-bold uppercase tracking-wider mb-1">

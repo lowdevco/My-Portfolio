@@ -25,4 +25,5 @@ dist-ssr
 
 # Passwords and Data
 
-src/mail-server/.env
+**/.env
+my-portfolio/src/mail-server/.env

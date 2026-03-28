@@ -11,15 +11,28 @@ except ImportError:
 
 app = Flask(__name__)
 
-ALLOWED_ORIGINS = ["https://portfolio-lilac-psi-20.vercel.app"]
+
+ALLOWED_ORIGINS = [
+    "https://portfolio-lilac-psi-20.vercel.app",
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://localhost:8080",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5173"
+]
+
 CORS(app, resources={r"/api/*": {"origins": ALLOWED_ORIGINS}})
 
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
-app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
+app.config.update(
+    MAIL_SERVER='smtp.gmail.com',
+    MAIL_PORT=465,
+    MAIL_USE_SSL=True,
+    MAIL_USERNAME=os.environ.get('MAIL_USERNAME'),
+    MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD'),
+    MAIL_DEFAULT_SENDER=os.environ.get('MAIL_USERNAME')
+)
 
 mail = Mail(app)
 
@@ -42,16 +55,17 @@ def contact():
     try:
         msg = Message(
             subject=f"Portfolio Contact: {subject}",
-            recipients=[os.environ.get('MAIL_USERNAME')],
+            recipients=[app.config['MAIL_USERNAME']],
             body=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message_body}",
-            reply_to=email  
+            reply_to=email
         )
         mail.send(msg)
         return jsonify({'success': 'Message sent successfully!'}), 200
     except Exception as e:
-        print(f"Server Error: {e}")
+        print(f"Error: {e}")
         return jsonify({'error': 'Failed to send message.'}), 500
 
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)

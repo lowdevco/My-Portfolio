@@ -4,7 +4,7 @@ import ExperienceItem from "@/components/ExperienceItem";
 function Experience() {
   const experiences = [
   
-  // Note: To add more experience, simply add another object to this array with the appropriate details. 
+  // Note: To add more experience, Add another object to this array with the appropriate details. 
   
     {
       company: "Freelance / Personal Projects",
