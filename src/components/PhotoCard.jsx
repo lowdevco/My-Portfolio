@@ -26,7 +26,7 @@ function PhotoCard() {
   return (
     <div className="photo-card-container flex items-center justify-center h-full perspective-2000">
       <div
-        className="photo-card-content overflow-hidden bg-gray-900 rounded-[1rem] w-[380px] h-[520px] md:w-[450px] md:h-[600px] transition-transform duration-300 ease-out shadow-2xl border border-white/10"
+        className="photo-card-content overflow-hidden bg-gray-900 rounded-xl w-[380px] h-[520px] md:w-[450px] md:h-[600px] transition-transform duration-300 ease-out shadow-2xl border border-white/10"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{

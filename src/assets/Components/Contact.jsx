@@ -109,7 +109,7 @@ function Contact() {
             {contactInfo.map((info, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-6 p-6 bg-gray-900/40 border border-white/10 rounded-2xl backdrop-blur-md hover:border-purple-500/50 transition-all group"
+                className="flex items-center gap-6 p-6 bg-gray-900/40 border border-white/10 rounded-lg backdrop-blur-md hover:border-purple-500/50 transition-all group"
               >
                 <div className="text-3xl transition-transform group-hover:scale-110">
                   {info.icon}
@@ -142,7 +142,7 @@ function Contact() {
               >
                 <button
                   type="button"
-                  className="p-4 rounded-xl bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg text-2xl"
+                  className="p-4 rounded-[50%] bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg text-2xl"
                 >
                   {icon}
                 </button>
@@ -151,7 +151,7 @@ function Contact() {
           </div>
         </div>
 
-        <div className="bg-gray-900/60 border border-white/10 p-8 rounded-[2.5rem] backdrop-blur-xl shadow-2xl">
+        <div className="bg-gray-900/60 border border-white/10 p-8 rounded-2xl backdrop-blur-xl shadow-2xl">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 gap-4">
               <input
@@ -161,7 +161,7 @@ function Contact() {
                 onChange={handleChange}
                 placeholder="Name"
                 required
-                className="bg-white/5 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-purple-500 transition-colors"
+                className="bg-white/5 border border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-purple-500 transition-colors"
               />
               <input
                 type="email"
@@ -170,7 +170,7 @@ function Contact() {
                 onChange={handleChange}
                 placeholder="Email"
                 required
-                className="bg-white/5 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-purple-500 transition-colors"
+                className="bg-white/5 border border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-purple-500 transition-colors"
               />
             </div>
             <input
@@ -180,7 +180,7 @@ function Contact() {
               onChange={handleChange}
               placeholder="Subject"
               required
-              className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-purple-500 transition-colors"
+              className="w-full bg-white/5 border border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-purple-500 transition-colors"
             />
             <textarea
               name="message"
@@ -189,13 +189,13 @@ function Contact() {
               placeholder="Message"
               required
               rows="5"
-              className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-white focus:outline-none focus:border-purple-500 transition-colors resize-none"
+              className="w-full bg-white/5 border border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-purple-500 transition-colors resize-none"
             ></textarea>
 
             <button
               type="submit"
               disabled={status.submitting}
-              className={`w-full py-4 bg-purple-700 hover:bg-purple-600 text-white font-bold rounded-xl shadow-[0_0_20px_rgba(126,34,206,0.3)] transition-all active:scale-[0.98] ${status.submitting ? "opacity-70 cursor-not-allowed" : ""}`}
+              className={`w-full py-4 bg-purple-700 hover:bg-purple-600 text-white font-bold rounded-lg shadow-[0_0_20px_rgba(126,34,206,0.3)] transition-all active:scale-[0.98] ${status.submitting ? "opacity-70 cursor-not-allowed" : ""}`}
             >
               {status.submitting ? "Sending..." : "Send Message"}
             </button>

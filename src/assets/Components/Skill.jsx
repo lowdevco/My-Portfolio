@@ -68,7 +68,7 @@ function Skill() {
         <Slider {...settings}>
           {skills.map((skill, index) => (
             <div key={index} className="px-4">
-              <div className="flex flex-col items-center justify-center p-6 bg-gray-900/50 border border-white/5 rounded-2xl hover:border-purple-500/50 transition-all duration-300">
+              <div className="flex flex-col items-center justify-center p-6 bg-gray-900/50 border border-white/5 rounded-lg hover:border-purple-500/50 transition-all duration-300">
                 <span className="text-4xl mb-3">{skill.icon}</span>
                 <p className="text-gray-300 font-mono font-medium">
                   {skill.name}
@@ -81,7 +81,7 @@ function Skill() {
         <Slider {...settings} className="mt-10">
           {tools.map((tools, index) => (
             <div key={index} className="px-4">
-              <div className="flex flex-col items-center justify-center p-6 bg-gray-900/50 border border-white/5 rounded-2xl hover:border-purple-500/50 transition-all duration-300">
+              <div className="flex flex-col items-center justify-center p-6 bg-gray-900/50 border border-white/5 rounded-lg hover:border-purple-500/50 transition-all duration-300">
                 <span className="text-4xl mb-3">{tools.icon}</span>
                 <p className="text-gray-300 font-mono font-medium">
                   {tools.name}

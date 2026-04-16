@@ -35,7 +35,7 @@ function Intro() {
 
           <div className="flex justify-center lg:justify-start gap-4 mt-8">
             <a href="https://github.com/lowdevco" target="_blank">
-              <button className="p-3 rounded-xl bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg">
+              <button className="p-3 rounded-lg bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg">
                 <FaGithub size={24} />
               </button>
             </a>
@@ -43,7 +43,7 @@ function Intro() {
               href="https://www.linkedin.com/in/muhammadirfank/"
               target="_blank"
             >
-              <button className="p-3 rounded-xl bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg">
+              <button className="p-3 rounded-lg bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg">
                 <FaLinkedin size={24} />
               </button>
             </a>
@@ -52,12 +52,12 @@ function Intro() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
             <button
               onClick={() => scroll("contact")}
-              className="py-4 px-8 bg-purple-700 hover:bg-purple-600 text-white font-bold rounded-2xl transition-all shadow-[0_0_20px_rgba(126,34,206,0.3)]"
+              className="py-4 px-8 bg-purple-700 hover:bg-purple-600 text-white font-bold rounded-lg transition-all shadow-[0_0_20px_rgba(126,34,206,0.3)]"
             >
               Contact Me
             </button>
 
-            <button className="py-4 px-8 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-2xl border border-white/10 flex items-center justify-center gap-3 transition-all">
+            <button className="py-4 px-8 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-lg border border-white/10 flex items-center justify-center gap-3 transition-all">
               <a
                 href=""
                 target="_blank"

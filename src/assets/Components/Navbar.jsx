@@ -21,7 +21,7 @@ function Navbar() {
       className="fixed top-6 left-1/2 -translate-x-1/2 z-1000 w-[90%] max-w-5xl 
                     h-16 px-8 flex items-center justify-between
                     bg-gray-900/40 backdrop-blur-md border border-white/10 
-                    rounded-2xl shadow-2xl transition-all duration-300"
+                    rounded-lg shadow-2xl transition-all duration-300"
     >
       <h1 className="text-white font-bold text-xl tracking-tighter cursor-pointer" onClick={() => scroll('intro')}>
         <span className="text-purple-500">PORTFOLIO</span>

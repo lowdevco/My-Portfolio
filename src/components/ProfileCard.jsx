@@ -46,7 +46,7 @@ function ProfileCard() {
               <span className="text-blue-300">skills:</span> [
               <span className="text-orange-300">"Python"</span>,
               <span className="text-orange-300">"React"</span>,
-              <span className="text-orange-300">"JS"</span>
+              <span className="text-orange-300">"Django"</span>
               ], <br />
               <span className="text-blue-300">passionate:</span>{" "}
               <span className="text-purple-400">true</span>, <br />

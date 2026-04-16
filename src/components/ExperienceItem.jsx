@@ -18,7 +18,7 @@ function ExperienceItem({ company, role, duration, description, skills }) {
           {duration}
         </span>
 
-        <div className="bg-gray-900/40 border border-white/5 p-6 rounded-2xl hover:border-purple-500/30 transition-all duration-300 shadow-xl">
+        <div className="bg-gray-900/40 border border-white/5 p-6 rounded-lg hover:border-purple-500/30 transition-all duration-300 shadow-xl">
           <div className="flex flex-col mb-2">
             <h3 className="text-2xl font-bold text-white tracking-tight">
               {role}

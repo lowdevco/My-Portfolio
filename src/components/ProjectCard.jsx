@@ -21,7 +21,7 @@ function ProjectCard({ title, description, tags, link, github, image }) {
       onMouseLeave={() => setRotate({ x: 0, y: 0 })}
     >
       <div
-        className="bg-gray-900/40 border border-white/10 rounded-3xl p-6 transition-all duration-200 ease-out shadow-2xl backdrop-blur-sm"
+        className="bg-gray-900/40 border border-white/10 rounded-xl p-6 transition-all duration-200 ease-out shadow-2xl backdrop-blur-sm"
         style={{
           transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
           transformStyle: "preserve-3d",
@@ -29,7 +29,7 @@ function ProjectCard({ title, description, tags, link, github, image }) {
       >
        
         <div
-          className="w-full h-48 bg-black/50 rounded-2xl mb-6 overflow-hidden border border-white/5"
+          className="w-full h-48 bg-black/50 rounded-lg mb-6 overflow-hidden border border-white/5"
           style={{ transform: "translateZ(20px)" }}
         >
           <img
@@ -49,7 +49,7 @@ function ProjectCard({ title, description, tags, link, github, image }) {
             {tags.map((tag, i) => (
               <span
                 key={i}
-                className="text-[10px] uppercase tracking-wider font-mono px-2 py-1 bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded-md"
+                className="text-[10px] uppercase tracking-wider font-mono px-2 py-1 bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded-lg"
               >
                 {tag}
               </span>
@@ -61,7 +61,7 @@ function ProjectCard({ title, description, tags, link, github, image }) {
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-800 hover:bg-gray-700 text-white text-sm font-semibold rounded-xl border border-white/10 transition-all active:scale-95"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-800 hover:bg-gray-700 text-white text-sm font-semibold rounded-lg border border-white/10 transition-all active:scale-95"
             >
               <SiGithub size={18} />
               GitHub
@@ -70,7 +70,7 @@ function ProjectCard({ title, description, tags, link, github, image }) {
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-purple-700 hover:bg-purple-600 text-white text-sm font-semibold rounded-xl shadow-[0_0_15px_rgba(126,34,206,0.3)] transition-all active:scale-95"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-purple-700 hover:bg-purple-600 text-white text-sm font-semibold rounded-lg shadow-[0_0_15px_rgba(126,34,206,0.3)] transition-all active:scale-95"
             >
               <FaExternalLinkAlt size={14} />
               Live Demo

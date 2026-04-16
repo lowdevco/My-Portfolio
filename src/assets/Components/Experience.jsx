@@ -9,7 +9,7 @@ function Experience() {
     {
       company: "Freelance / Personal Projects",
       role: "Full Stack Developer",
-      duration: "Feb 2024 - Present",
+      duration: "June 2025 - Present",
       description:
         "Developing end-to-end web applications including an e-commerce platform with React, focusing on state management and payment integration.",
       skills: ["React", "Node.js", "Tailwind CSS", "Razorpay"],
