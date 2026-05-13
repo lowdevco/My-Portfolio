@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { SiGithub, SiLinkedin, SiInstagram, SiGmail } from "react-icons/si";
 import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import "../css/contact.css";
+import { motion } from "motion/react";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -88,8 +89,7 @@ function Contact() {
   ];
 
   return (
-    <section
-      className="contact-section py-20 px-6 max-w-7xl mx-auto relative z-10"
+    <motion.section initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="contact-section py-20 px-6 max-w-7xl mx-auto relative z-10"
       id="contact"
     >
       <div className="text-center mb-16">
@@ -211,7 +211,7 @@ function Contact() {
           </form>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

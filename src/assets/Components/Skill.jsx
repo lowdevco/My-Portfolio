@@ -11,6 +11,11 @@ import {
   SiBootstrap,
   SiPostman,
   SiFigma,
+  SiDjango,
+  SiMysql,
+  SiJquery,
+  SiSqlite,
+
 } from "react-icons/si";
 
 
@@ -44,11 +49,14 @@ function Skill() {
 
   const skills = [
     { name: "React", icon: <FaReact className="text-white" /> },
-    { name: "Node.js", icon: <DiNodejsSmall className="text-white" /> },
+    { name: "Django", icon: <SiDjango className="text-white" /> },
     { name: "Python", icon: <SiPython className="text-white" /> },
     { name: "Tailwind", icon: <SiTailwindcss className="text-white" /> },
     { name: "JavaScript", icon: <SiJavascript className="text-white" /> },
-  ];
+    { name: "Nodejs", icon: <DiNodejsSmall className="text-white" /> },
+    { name: "Mysql", icon: <SiMysql className="text-white" /> },
+    { name: "Sqlite", icon: <SiSqlite className="text-white" /> },
+  ];  
 
   const tools = [
     { name: "Git", icon: <SiGit className="text-white" /> },
@@ -56,6 +64,7 @@ function Skill() {
     { name: "VS Code", icon: <VscVscode className="text-white" /> },
     { name: "Postman", icon: <SiPostman className="text-white" /> },
     { name: "Figma", icon: <SiFigma className="text-white" /> },
+    { name: "jQuery", icon: <SiJquery className="text-white" />},
   ];
 
   return (

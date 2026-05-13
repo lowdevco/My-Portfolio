@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/navbar.css";
 import { useSmoothScroll } from "../Hook/scrollToSection";
+import { motion } from "motion/react";  
 
 function Navbar() {
 
@@ -17,8 +18,8 @@ function Navbar() {
   ];
 
   return (
-    <nav
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-1000 w-[90%] max-w-5xl 
+    <motion.nav
+      initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="fixed top-6 left-1/2 -translate-x-1/2 z-1000 w-[90%] max-w-5xl 
                     h-16 px-8 flex items-center justify-between
                     bg-gray-900/40 backdrop-blur-md border border-white/10 
                     rounded-lg shadow-2xl transition-all duration-300"
@@ -79,7 +80,7 @@ function Navbar() {
           </a>
         ))}
       </div>
-    </nav>
+    </motion.nav>
   );
 }
 

@@ -2,10 +2,11 @@ import React from "react";
 import "../css/about.css";
 import PhotoCard from "@/components/PhotoCard";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 
 function About() {
   return (
-    <div className="about-container grid items-center justify-center grid-cols-1 lg:grid-cols-2 gap-12 w-[90%] xl:w-[70%] my-24 mx-auto relative z-10">
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="about-container grid items-center justify-center grid-cols-1 lg:grid-cols-2 gap-12 w-[90%] xl:w-[70%] my-24 mx-auto relative z-10">
       {/* Text Section */}
       <div className="order-2 lg:order-1 text-center lg:text-left">
         <h1 className="about-title text-5xl md:text-7xl font-extrabold text-white tracking-tight">
@@ -30,7 +31,7 @@ function About() {
       <div className="order-1 lg:order-2 flex justify-center perspective-2000">
         <PhotoCard />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -5,6 +5,7 @@ import promyc from "../image/project/promyc.png"
 import MovieBox from "../image/project/movie.png"
 import weather from "../image/project/weather.png"
 import orgado from "../image/project/orgado.png"
+import { motion } from "motion/react";
 
 function Project() {
   const myProjects = [
@@ -57,11 +58,11 @@ function Project() {
         <div className="h-1.5 w-24 bg-purple-800 mt-4 rounded-full mx-auto lg:mx-0" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {myProjects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

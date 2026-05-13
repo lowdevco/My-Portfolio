@@ -2,13 +2,19 @@ import React from "react";
 import "../css/intro.css";
 import { FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
 import ProfileCard from "@/components/ProfileCard";
-import { useSmoothScroll } from "../Hook/scrollToSection";
+import { useSmoothScroll } from "../Hook/scrollToSection";  
+import { motion } from "motion/react";
 
 function Intro() {
 
   const scroll = useSmoothScroll();
   return (
-    <div className="intro-container min-h-screen flex items-center justify-center px-6 lg:mt-10 md:mt-30  mt-30 relative z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.4, duration: 0.6 }}
+      className="intro-container min-h-screen flex items-center justify-center px-6 lg:mt-10 md:mt-30  mt-30 relative z-10"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-24 items-center max-w-7xl">
         <div className="intro-content text-center lg:text-left">
           <div className="inline-block px-4 py-1.5 rounded-full bg-purple-800/20 border border-purple-500/30 mb-6">
@@ -32,7 +38,7 @@ function Intro() {
             <span className="text-purple-500">Full Stack Developer</span>{" "}
             focused on building high-performance, user-centric web applications.
           </p>
-
+          
           <div className="flex justify-center lg:justify-start gap-4 mt-8">
             <a href="https://github.com/lowdevco" target="_blank">
               <button className="p-3 rounded-lg bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg">
@@ -59,8 +65,7 @@ function Intro() {
 
             <button className="py-4 px-8 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-lg border border-white/10 flex items-center justify-center gap-3 transition-all">
               <a
-                href=""
-                target="_blank"
+                href="https://drive.google.com/uc?export=download&id=1bD0EGHS6Ni0leqbfHd4yA_nnpwh4tx20"
                 className="flex items-center justify-center gap-3 transition-all"
               >
                 Get Resume
@@ -72,11 +77,11 @@ function Intro() {
 
         {/* Profile Card Section */}
 
-        <div className="flex justify-center items-center">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="flex justify-center items-center">
           <ProfileCard />
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
