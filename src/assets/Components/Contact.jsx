@@ -129,7 +129,7 @@ function Contact() {
               { icon: <SiGithub />, link: "https://github.com/muhammadirfan" },
               {
                 icon: <SiLinkedin />,
-                link: "https://linkedin.com/in/muhammadirfan",
+                link: "https://linkedin.com/in/muhammadirfank",
               },
               { icon: <SiInstagram />, link: "https://instagram.com" },
             ].map(({ icon, link }, i) => (
