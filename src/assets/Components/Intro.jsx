@@ -6,8 +6,8 @@ import { useSmoothScroll } from "../Hook/scrollToSection";
 import { motion } from "motion/react";
 
 function Intro() {
-
   const scroll = useSmoothScroll();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -15,7 +15,7 @@ function Intro() {
       transition={{ delay: 0.4, duration: 0.6 }}
       className="intro-container min-h-screen flex items-center justify-center px-6 lg:mt-10 md:mt-30  mt-30 relative z-10"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-24 items-center max-w-7xl">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-24 items-center w-[90%] xl:w-[70%] mx-auto">
         <div className="intro-content text-center lg:text-left">
           <div className="inline-block px-4 py-1.5 rounded-full bg-purple-800/20 border border-purple-500/30 mb-6">
             <span className="text-purple-400 text-xs font-bold tracking-widest uppercase">
@@ -40,16 +40,13 @@ function Intro() {
           </p>
           
           <div className="flex justify-center lg:justify-start gap-4 mt-8">
-            <a href="https://github.com/lowdevco" target="_blank">
-              <button className="p-3 rounded-lg bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg">
+            <a href="https://github.com/lowdevco" target="_blank" rel="noopener noreferrer">
+              <button className="p-3 rounded-lg bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg cursor-pointer">
                 <FaGithub size={24} />
               </button>
             </a>
-            <a
-              href="https://www.linkedin.com/in/muhammadirfank/"
-              target="_blank"
-            >
-              <button className="p-3 rounded-lg bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg">
+            <a href="https://www.linkedin.com/in/muhammadirfank/" target="_blank" rel="noopener noreferrer">
+              <button className="p-3 rounded-lg bg-gray-900 border border-white/10 text-white hover:bg-purple-800 transition-all shadow-lg cursor-pointer">
                 <FaLinkedin size={24} />
               </button>
             </a>
@@ -58,12 +55,12 @@ function Intro() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
             <button
               onClick={() => scroll("contact")}
-              className="py-4 px-8 bg-purple-700 hover:bg-purple-600 text-white font-bold rounded-lg transition-all shadow-[0_0_20px_rgba(126,34,206,0.3)]"
+              className="py-4 px-8 bg-purple-700 hover:bg-purple-600 text-white font-bold rounded-lg transition-all shadow-[0_0_20px_rgba(126,34,206,0.3)] cursor-pointer"
             >
               Contact Me
             </button>
 
-            <button className="py-4 px-8 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-lg border border-white/10 flex items-center justify-center gap-3 transition-all">
+            <button className="py-4 px-8 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-lg border border-white/10 flex items-center justify-center gap-3 transition-all cursor-pointer">
               <a
                 href="https://drive.google.com/uc?export=download&id=1bD0EGHS6Ni0leqbfHd4yA_nnpwh4tx20"
                 className="flex items-center justify-center gap-3 transition-all"
@@ -76,7 +73,6 @@ function Intro() {
         </div>
 
         {/* Profile Card Section */}
-
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="flex justify-center items-center">
           <ProfileCard />
         </motion.div>

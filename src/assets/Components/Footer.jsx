@@ -1,5 +1,5 @@
 import React from "react";
-import { SiGithub, SiLinkedin, SiInstagram, SiX } from "react-icons/si";
+import { SiGithub, SiLinkedin, SiInstagram } from "react-icons/si";
 import "../css/footer.css";
 import { motion } from "motion/react";
 
@@ -8,7 +8,7 @@ function Footer() {
 
   return (
     <motion.footer initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="footer-container py-12 px-6 relative z-10">
-      <div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="max-w-6xl mx-auto">
+      <div className="w-[90%] xl:w-[70%] mx-auto">
         <div className="bg-gray-900/60 border border-white/10 backdrop-blur-xl rounded-xl p-8 md:p-12 shadow-2xl overflow-hidden relative group">
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-600/10 blur-[100px] group-hover:bg-purple-600/20 transition-all duration-700" />
 
@@ -44,7 +44,6 @@ function Footer() {
               ))}
             </div>
 
-           
             <div className="text-center md:text-right">
               <div className="flex items-center justify-center md:justify-end gap-2 mb-2">
                 <span className="relative flex h-2 w-2">
@@ -62,7 +61,6 @@ function Footer() {
             </div>
           </div>
 
-          
           <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-purple-500/20 to-transparent mt-10" />
         </div>
       </div>

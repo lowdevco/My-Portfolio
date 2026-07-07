@@ -21,7 +21,7 @@ function ProfileCard() {
   return (
     <div className="perspective-1000">
       <div
-        className="profile-card bg-gray-900/80 border border-white/10 rounded-3xl p-10 transition-all duration-200 ease-out shadow-2xl backdrop-blur-sm"
+        className="profile-card bg-gray-900/80 border border-white/10 rounded-3xl p-6 sm:p-10 transition-all duration-200 ease-out shadow-2xl backdrop-blur-sm w-full max-w-[450px] mx-auto"
         onMouseMove={handleMouseMove}
         onMouseLeave={() => setRotate({ x: 0, y: 0 })}
         style={{
@@ -33,7 +33,7 @@ function ProfileCard() {
           className="profile-content font-mono leading-relaxed"
           style={{ transform: "translateZ(40px)" }}
         >
-          <h4 className="text-white text-lg">
+          <h4 className="text-white text-[10px] sm:text-sm md:text-base">
             <span className="text-purple-400">const</span>{" "}
             <span className="text-yellow-200">Developer</span> = &#123;
             <br />

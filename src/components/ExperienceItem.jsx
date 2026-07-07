@@ -28,9 +28,20 @@ function ExperienceItem({ company, role, duration, description, skills }) {
             </p>
           </div>
 
-          <p className="text-gray-400 mt-2 leading-relaxed text-lg">
-            {description}
-          </p>
+          <div className="text-gray-400 mt-4 leading-relaxed text-[15px] md:text-lg space-y-2">
+            {Array.isArray(description) ? (
+              <ul className="list-none space-y-2">
+                {description.map((desc, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-purple-500 mt-1.5 text-[10px]">●</span>
+                    <span className="flex-1">{desc}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>{description}</p>
+            )}
+          </div>
 
           <div className="flex flex-wrap gap-2 mt-5">
             {skills.map((skill, index) => (
