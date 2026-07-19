@@ -67,9 +67,11 @@ export const projects = [
     title: "ResoniQ",
     description:
       "Resoniq is a collaborative music listening web application that lets multiple people listen to music together in real time.",
-    tags: ["HTML", "Bootstrap", "CSS"],
+    tags: ["React", "Django", "Websocket"],
     github: "https://github.com/lowdevco/ResoniQ",
+    link: "https://resoniq-music.vercel.app/",
     image: resoniq,
+    featured: true,
   },
   {
     title: "Daily Dish",
@@ -79,7 +81,6 @@ export const projects = [
     github: "https://github.com/lowdevco/Daily-Dish",
     link: "https://lowdevco.github.io/Daily-Dish/",
     image: dailydish,
-    featured: true,
   },
   {
     title: "Eclat Cafe",

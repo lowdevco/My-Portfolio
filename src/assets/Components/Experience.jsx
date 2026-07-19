@@ -23,6 +23,16 @@ function Experience() {
       ],
       skills: ["React", "Django", "Tailwind CSS", "REST API", "MySQL"],
     },
+    {
+      company: "Xeventure IT Solutions",
+      role: "Python Full Stack Developer",
+      duration: "July 2026 - Present",
+      description: [
+        "Designed, developed, and deployed production-grade full-stack applications using Python, Django, and React, with a focus on scalable architecture and maintainable code.",
+        "Owned end-to-end feature delivery from database schema design through responsive frontend implementation, while participating in code reviews and deployment workflows to improve application reliability and maintainability.",
+      ],
+      skills: ["React", "Django", "SQL", "DevOps", "Tutoring"],
+    },
   ];
 
   return (

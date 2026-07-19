@@ -7,7 +7,12 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <motion.footer initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="footer-container py-12 px-6 relative z-10">
+    <motion.footer
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.4, duration: 0.6 }}
+      className="footer-container py-12 px-6 relative z-10"
+    >
       <div className="w-[90%] xl:w-[70%] mx-auto">
         <div className="bg-gray-900/60 border border-white/10 backdrop-blur-xl rounded-xl p-8 md:p-12 shadow-2xl overflow-hidden relative group">
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-600/10 blur-[100px] group-hover:bg-purple-600/20 transition-all duration-700" />
@@ -45,15 +50,9 @@ function Footer() {
             </div>
 
             <div className="text-center md:text-right">
-              <div className="flex items-center justify-center md:justify-end gap-2 mb-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                <p className="text-gray-400 text-[10px] font-mono uppercase tracking-widest">
-                  Available for Hire
-                </p>
-              </div>
+              <p className="text-[10px] font-mono uppercase tracking-widest text-purple-500/50 mb-3">
+                lowdevco
+              </p>
               <p className="text-gray-500 text-xs font-mono">
                 © {currentYear} Built with{" "}
                 <span className="text-purple-600">React</span>
