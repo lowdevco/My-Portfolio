@@ -17,15 +17,42 @@ This is my personal developer portfolio — a clean, responsive web app that hig
 ---
 
 ## Sections
+
 <div align="center">
-| Section | Description |
-|---|---|
-| **Intro** | A welcoming landing section with a brief introduction |
-| **Experience** | My professional background and work history |
-| **Skills** | Technologies and tools I work with |
-| **Projects** | A showcase of selected projects I've built |
-| **Contact** | Ways to get in touch with me |
+
+<table>
+  <thead>
+    <tr>
+      <th align="center">Section</th>
+      <th align="center">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center"><b>Intro</b></td>
+      <td align="center">A welcoming landing section with a brief introduction</td>
+    </tr>
+    <tr>
+      <td align="center"><b>Experience</b></td>
+      <td align="center">My professional background and work history</td>
+    </tr>
+    <tr>
+      <td align="center"><b>Skills</b></td>
+      <td align="center">Technologies and tools I work with</td>
+    </tr>
+    <tr>
+      <td align="center"><b>Projects</b></td>
+      <td align="center">A showcase of selected projects I've built</td>
+    </tr>
+    <tr>
+      <td align="center"><b>Contact</b></td>
+      <td align="center">Ways to get in touch with me</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
+
 ---
 
 ## Contact
