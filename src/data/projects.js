@@ -26,12 +26,12 @@ export const projects = [
     featured: true,
   },
   {
-    title: "Weather Webapp",
+    title: "Skies",
     description:
       "A high-performance weather engine providing real-time meteorological data and environmental analytics through a clean, glassmorphic interface.",
     tags: ["HTML", "Tailwind CSS", "JS", "API"],
-    github: "https://github.com/lowdevco/Wheather",
-    link: "https://lowdevco.github.io/Wheather/",
+    github: "https://github.com/lowdevco/Skies",
+    link: "https://lowdevco.github.io/Skies/",
     image: weather,
   },
   {
