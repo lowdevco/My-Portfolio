@@ -17,7 +17,7 @@ This is my personal developer portfolio — a clean, responsive web app that hig
 ---
 
 ## Sections
-
+<div align="center">
 | Section | Description |
 |---|---|
 | **Intro** | A welcoming landing section with a brief introduction |
@@ -25,7 +25,7 @@ This is my personal developer portfolio — a clean, responsive web app that hig
 | **Skills** | Technologies and tools I work with |
 | **Projects** | A showcase of selected projects I've built |
 | **Contact** | Ways to get in touch with me |
-
+</div>
 ---
 
 ## Contact
