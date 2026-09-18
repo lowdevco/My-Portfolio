@@ -3,82 +3,76 @@ import { SiGithub } from "react-icons/si";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 function ProjectCard({ title, description, tags, link, github, image }) {
-  const [rotate, setRotate] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    const card = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - card.left - card.width / 2;
-    const y = e.clientY - card.top - card.height / 2;
-
-  
-    setRotate({ x: y / -20, y: x / 20 });
-  };
-
   return (
-    <div
-      className="relative group [perspective:1000px]"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={() => setRotate({ x: 0, y: 0 })}
-    >
-      <div
-        className="bg-gray-900/40 border border-white/10 rounded-xl p-6 transition-all duration-200 ease-out shadow-2xl backdrop-blur-sm"
-        style={{
-          transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
-          transformStyle: "preserve-3d",
-        }}
-      >
-       
-        <div
-          className="w-full h-48 bg-black/50 rounded-lg mb-6 overflow-hidden border border-white/5"
-          style={{ transform: "translateZ(20px)" }}
-        >
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
-          />
-        </div>
+    <article className="group relative flex flex-col h-[420px] md:h-[480px] w-full rounded-3xl overflow-hidden shadow-2xl border border-white/5 hover:border-[#A57AFF]/40 hover:shadow-[0_10px_40px_rgba(165,122,255,0.15)] bg-[#111113] transition-all duration-500">
+      
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 bg-[#000]">
+        <img
+          src={image}
+          alt={title}
+          loading="lazy"
+          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out opacity-60 group-hover:opacity-40"
+        />
+        {/* Cinematic Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/60 to-transparent opacity-90" />
+      </div>
 
-        <div style={{ transform: "translateZ(40px)" }}>
-          <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
-          <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
+      {/* Top section: Tags */}
+      <div className="relative z-10 flex flex-wrap gap-2 p-6 md:p-8 justify-end">
+        {tags.map((tag, i) => (
+          <span
+            key={i}
+            className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 bg-black/40 text-[#f5f5f7] backdrop-blur-md rounded-full border border-white/10 group-hover:border-[#A57AFF]/40 group-hover:bg-[#A57AFF]/10 group-hover:text-[#A57AFF] transition-all duration-300 shadow-lg"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      {/* Bottom section: Content Container */}
+      <div className="relative z-10 flex flex-col justify-end p-6 md:p-8 mt-auto overflow-hidden">
+        
+        {/* Animated Wrapper */}
+        <div className="transform translate-y-16 group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col">
+          
+          {/* Title */}
+          <h3 className="text-3xl md:text-4xl font-extrabold text-[#f5f5f7] mb-3 tracking-tight group-hover:text-[#A57AFF] transition-colors duration-300 drop-shadow-md">
+            {title}
+          </h3>
+          
+          {/* Description */}
+          <p className="text-[#a1a1a6] text-[15px] md:text-base leading-relaxed line-clamp-2 md:line-clamp-3 mb-6">
             {description}
           </p>
 
-          <div className="flex flex-wrap gap-2 mb-6">
-            {tags.map((tag, i) => (
-              <span
-                key={i}
-                className="text-[10px] uppercase tracking-wider font-mono px-2 py-1 bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded-lg"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 mt-auto">
+          {/* Action Buttons */}
+          <div className="grid grid-cols-2 gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 ease-out">
             <a
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-800 hover:bg-gray-700 text-white text-sm font-semibold rounded-lg border border-white/10 transition-all active:scale-95"
+              aria-label={`View ${title} source code on GitHub`}
+              className="flex items-center justify-center gap-2 px-4 py-3.5 bg-white/10 hover:bg-white text-[#f5f5f7] hover:text-black backdrop-blur-md text-sm font-bold rounded-2xl transition-all duration-300 border border-white/10"
             >
-              <SiGithub size={18} />
+              <SiGithub size={18} aria-hidden="true" />
               GitHub
             </a>
             <a
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-purple-700 hover:bg-purple-600 text-white text-sm font-semibold rounded-lg shadow-[0_0_15px_rgba(126,34,206,0.3)] transition-all active:scale-95"
+              aria-label={`View ${title} live demo`}
+              className="flex items-center justify-center gap-2 px-4 py-3.5 bg-[#A57AFF] hover:bg-[#b58eff] text-black text-sm font-bold rounded-2xl transition-all duration-300 shadow-[0_0_20px_rgba(165,122,255,0.3)]"
             >
-              <FaExternalLinkAlt size={14} />
-              Live Demo
+              <FaExternalLinkAlt size={14} aria-hidden="true" />
+              Demo
             </a>
           </div>
+
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

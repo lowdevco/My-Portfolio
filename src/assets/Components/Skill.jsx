@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaReact } from "react-icons/fa";
 import { DiNodejsSmall } from "react-icons/di";
 import { VscVscode } from "react-icons/vsc";
@@ -15,81 +15,76 @@ import {
   SiJquery,
   SiSqlite,
 } from "react-icons/si";
-import { motion, AnimatePresence } from "motion/react";
 
 function Skill() {
-  const allSkills = [
-    { name: "React", icon: <FaReact className="w-full h-full" />, type: "skill" },
-    { name: "Django", icon: <SiDjango className="w-full h-full" />, type: "skill" },
-    { name: "Python", icon: <SiPython className="w-full h-full" />, type: "skill" },
-    { name: "Tailwind", icon: <SiTailwindcss className="w-full h-full" />, type: "skill" },
-    { name: "JavaScript", icon: <SiJavascript className="w-full h-full" />, type: "skill" },
-    { name: "Node.js", icon: <DiNodejsSmall className="w-full h-full" />, type: "skill" },
-    { name: "MySQL", icon: <SiMysql className="w-full h-full" />, type: "skill" },
-    { name: "SQLite", icon: <SiSqlite className="w-full h-full" />, type: "skill" },
-    { name: "Git", icon: <SiGit className="w-full h-full" />, type: "tool" },
-    { name: "Bootstrap", icon: <SiBootstrap className="w-full h-full" />, type: "tool" },
-    { name: "VS Code", icon: <VscVscode className="w-full h-full" />, type: "tool" },
-    { name: "Postman", icon: <SiPostman className="w-full h-full" />, type: "tool" },
-    { name: "Figma", icon: <SiFigma className="w-full h-full" />, type: "tool" },
-    { name: "jQuery", icon: <SiJquery className="w-full h-full" />, type: "tool" },
+  const categories = [
+    {
+      title: "Frontend",
+      skills: [
+        { name: "React", icon: <FaReact className="w-5 h-5" /> },
+        { name: "JavaScript", icon: <SiJavascript className="w-5 h-5" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="w-5 h-5" /> },
+        { name: "Bootstrap", icon: <SiBootstrap className="w-5 h-5" /> },
+        { name: "jQuery", icon: <SiJquery className="w-5 h-5" /> },
+      ],
+    },
+    {
+      title: "Backend & Database",
+      skills: [
+        { name: "Python", icon: <SiPython className="w-5 h-5" /> },
+        { name: "Django", icon: <SiDjango className="w-5 h-5" /> },
+        { name: "Node.js", icon: <DiNodejsSmall className="w-6 h-6" /> },
+        { name: "MySQL", icon: <SiMysql className="w-5 h-5" /> },
+        { name: "SQLite", icon: <SiSqlite className="w-5 h-5" /> },
+      ],
+    },
+    {
+      title: "Developer Tools",
+      skills: [
+        { name: "Git", icon: <SiGit className="w-5 h-5" /> },
+        { name: "VS Code", icon: <VscVscode className="w-5 h-5" /> },
+        { name: "Postman", icon: <SiPostman className="w-5 h-5" /> },
+        { name: "Figma", icon: <SiFigma className="w-5 h-5" /> },
+      ],
+    },
   ];
 
-  const [activeSkill, setActiveSkill] = useState(null);
-
   return (
-    <div className="skills-container py-20 bg-transparent overflow-hidden relative z-10" id="skills">
-      <div className="w-[90%] xl:w-[70%] mx-auto px-4">
+    <section className="skills-container py-24 relative z-10" id="skills">
+      <div className="w-full max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-white tracking-tight">
-            Technical <span className="text-purple-600">Stack</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#f5f5f7] tracking-tight">
+            Technical <span className="text-[#A57AFF]">Stack</span>
           </h2>
-          <div className="h-1.5 w-24 bg-purple-600 mt-6 mx-auto rounded-full" />
+          <div className="h-1.5 w-24 bg-[#A57AFF] mt-6 mx-auto rounded-full" />
         </div>
 
-        <div className="flex flex-wrap gap-4 md:gap-6 justify-center items-center max-w-4xl mx-auto">
-          {allSkills.map((skill, idx) => {
-            const isActive = activeSkill === skill.name;
-
-            return (
-              <motion.button
-                key={idx}
-                layout
-                onClick={() => setActiveSkill(isActive ? null : skill.name)}
-                className={`relative flex items-center justify-center h-16 md:h-20 rounded-full transition-colors duration-300 border backdrop-blur-md overflow-hidden ${
-                  isActive
-                    ? "bg-purple-600/20 border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.3)] text-purple-400 px-6 md:px-8"
-                    : "bg-gray-900/50 border-white/10 hover:border-purple-500/50 text-gray-400 hover:text-white w-16 md:w-20"
-                }`}
-              >
-                <motion.div layout className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0">
-                  {skill.icon}
-                </motion.div>
-
-                <AnimatePresence>
-                  {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0, width: 0, marginLeft: 0 }}
-                      animate={{ opacity: 1, width: "auto", marginLeft: 16 }}
-                      exit={{ opacity: 0, width: 0, marginLeft: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="whitespace-nowrap flex flex-col items-start overflow-hidden"
-                    >
-                      <span className="text-lg md:text-xl font-bold text-white leading-tight">
-                        {skill.name}
-                      </span>
-                      <span className="text-[10px] md:text-xs font-mono tracking-widest uppercase text-purple-400 mt-0.5">
-                        {skill.type}
-                      </span>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.button>
-            );
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {categories.map((category, idx) => (
+            <article
+              key={idx}
+              className="bg-[#111113] border border-white/5 rounded-3xl p-8 hover:border-[#A57AFF]/30 transition-all duration-300 hover:shadow-[0_0_30px_rgba(165,122,255,0.05)]"
+            >
+              <h3 className="text-2xl font-bold text-[#f5f5f7] mb-8 tracking-tight">
+                {category.title}
+              </h3>
+              <ul className="flex flex-col gap-4" aria-label={`${category.title} skills`}>
+                {category.skills.map((skill, sIdx) => (
+                  <li key={sIdx} className="flex items-center gap-4 group cursor-default">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-[#1d1d1f] border border-white/5 text-[#86868b] group-hover:text-[#A57AFF] group-hover:border-[#A57AFF]/20 transition-all duration-300" aria-hidden="true">
+                      {skill.icon}
+                    </div>
+                    <span className="text-[#86868b] font-medium text-lg group-hover:text-[#f5f5f7] transition-colors duration-300">
+                      {skill.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

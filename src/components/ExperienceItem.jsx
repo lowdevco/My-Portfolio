@@ -2,60 +2,54 @@ import React from "react";
 
 function ExperienceItem({ company, role, duration, description, skills }) {
   return (
-    <div className="relative pl-8 pb-12 group">
-      {/* Line Connect For Experience */}
+    <article className="group relative grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-10 md:py-14 border-t border-white/10 first:border-transparent transition-all duration-500 hover:bg-gradient-to-r hover:from-[#A57AFF]/10 hover:via-transparent hover:to-transparent px-4 md:px-8 -mx-4 md:-mx-8 rounded-3xl overflow-hidden">
+      
+      {/* Animated Left Accent Line */}
+      <div className="absolute left-0 top-8 bottom-8 w-1.5 bg-[#A57AFF] rounded-r-full opacity-0 scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 transition-all duration-500 ease-out shadow-[0_0_20px_rgba(165,122,255,0.8)]" />
 
-      <div className="absolute left-0 top-0 h-full w-[2px] bg-gray-800 group-last:h-2" />
-
-      {/* Dot For Experience */}
-
-      <div className="absolute left-[-4px] top-0 h-[10px] w-[10px] rounded-full bg-purple-600 shadow-[0_0_10px_rgba(147,51,234,0.8)] border-2 border-white group-hover:scale-125 transition-transform duration-300" />
-
-      {/*  CONTENTS for Experience */}
-
-      <div className="flex flex-col gap-1">
-        <span className="text-purple-500 font-mono text-sm font-bold uppercase tracking-wider mb-1">
+      {/* Left side: Duration & Company */}
+      <div className="md:col-span-4 flex flex-col gap-2 md:mt-1 transition-transform duration-500 ease-out group-hover:translate-x-3">
+        <time className="text-[#A57AFF] font-mono text-sm md:text-sm font-semibold tracking-widest uppercase mb-1">
           {duration}
-        </span>
+        </time>
+        <h4 className="text-xl md:text-2xl font-bold text-[#f5f5f7]">{company}</h4>
+      </div>
 
-        <div className="bg-gray-900/40 border border-white/5 p-6 rounded-lg hover:border-purple-500/30 transition-all duration-300 shadow-xl">
-          <div className="flex flex-col mb-2">
-            <h3 className="text-2xl font-bold text-white tracking-tight">
-              {role}
-            </h3>
-            <p className="text-gray-400 font-medium italic opacity-80">
-              {company}
-            </p>
-          </div>
+      {/* Right side: Role, Description, Skills */}
+      <div className="md:col-span-8 flex flex-col">
+        <h3 className="text-2xl md:text-3xl font-extrabold text-[#f5f5f7] tracking-tight mb-6 transition-all duration-500 ease-out group-hover:text-[#A57AFF] group-hover:translate-x-3">
+          {role}
+        </h3>
 
-          <div className="text-gray-400 mt-4 leading-relaxed text-[15px] md:text-lg space-y-2">
-            {Array.isArray(description) ? (
-              <ul className="list-none space-y-2">
-                {description.map((desc, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="text-purple-500 mt-1.5 text-[10px]">●</span>
-                    <span className="flex-1">{desc}</span>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>{description}</p>
-            )}
-          </div>
+        <div className="text-[#86868b] leading-relaxed text-[15px] md:text-lg mb-8">
+          {Array.isArray(description) ? (
+            <ul className="flex flex-col gap-4">
+              {description.map((desc, i) => (
+                <li key={i} className="flex items-start gap-4">
+                  <span className="text-[#A57AFF]/60 mt-1.5 text-[14px]" aria-hidden="true">
+                    ✦
+                  </span>
+                  <span className="flex-1">{desc}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>{description}</p>
+          )}
+        </div>
 
-          <div className="flex flex-wrap gap-2 mt-5">
-            {skills.map((skill, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 text-xs font-semibold rounded-md bg-white/5 text-gray-300 border border-white/10 hover:bg-purple-500/10 hover:text-purple-400 hover:border-purple-500/20 transition-colors"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-2 md:gap-3 mt-auto" aria-label="Skills used">
+          {skills.map((skill, index) => (
+            <span
+              key={index}
+              className="px-4 py-1.5 text-xs font-semibold tracking-wide rounded-full bg-[#A57AFF]/10 text-[#A57AFF] border border-[#A57AFF]/20 transition-all hover:bg-[#A57AFF]/20"
+            >
+              {skill}
+            </span>
+          ))}
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

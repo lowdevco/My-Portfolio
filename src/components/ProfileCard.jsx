@@ -19,9 +19,9 @@ function ProfileCard() {
   };
 
   return (
-    <div className="perspective-1000">
+    <div className="perspective-1000 w-full flex justify-center">
       <div
-        className="profile-card bg-gray-900/80 border border-white/10 rounded-3xl p-6 sm:p-10 transition-all duration-200 ease-out shadow-2xl backdrop-blur-sm w-full max-w-[450px] mx-auto"
+        className="profile-card bg-[#111113] border border-white/5 rounded-3xl p-6 sm:p-8 transition-all duration-300 ease-out shadow-2xl w-full max-w-[480px]"
         onMouseMove={handleMouseMove}
         onMouseLeave={() => setRotate({ x: 0, y: 0 })}
         style={{
@@ -30,34 +30,33 @@ function ProfileCard() {
         }}
       >
         <div
-          className="profile-content font-mono leading-relaxed"
-          style={{ transform: "translateZ(40px)" }}
+          className="profile-content font-mono leading-relaxed tracking-tight"
+          style={{ transform: "translateZ(30px)" }}
         >
-          <h4 className="text-white text-[10px] sm:text-sm md:text-base">
-            <span className="text-purple-400">const</span>{" "}
-            <span className="text-yellow-200">Developer</span> = &#123;
+          <div className="flex gap-2 mb-6">
+            <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+          </div>
+          <h4 className="text-[#f5f5f7] text-xs sm:text-sm md:text-[15px]">
+            <span className="text-[#ff7ab2]">const</span>{" "}
+            <span className="text-[#e5c07b]">Developer</span> = &#123;
             <br />
-            <div className="pl-6 mt-2">
-              <span className="text-blue-300">name:</span>{" "}
-              <span className="text-orange-300">"Muhammad Irfan"</span>, <br />
-              <span className="text-blue-300">role:</span>{" "}
-              <span className="text-orange-300">"Full Stack Developer"</span>,{" "}
-              <br />
-              <span className="text-blue-300">skills:</span> [
-              <span className="text-orange-300">"Python"</span>,
-              <span className="text-orange-300">"React"</span>,
-              <span className="text-orange-300">"Django"</span>
-              ], <br />
-              <span className="text-blue-300">passionate:</span>{" "}
-              <span className="text-purple-400">true</span>, <br />
-              <span className="text-blue-300">motto:</span>{" "}
-              <span className="text-orange-300">"Build with Purpose"</span>
+            <div className="pl-6 mt-2 space-y-1">
+              <div><span className="text-[#61afef]">name:</span> <span className="text-[#98c379]">"Muhammad Irfan"</span>,</div>
+              <div><span className="text-[#61afef]">role:</span> <span className="text-[#98c379]">"Full Stack Developer"</span>,</div>
+              <div><span className="text-[#61afef]">skills:</span> [
+                <span className="text-[#98c379]">"Python"</span>,{" "}
+                <span className="text-[#98c379]">"React"</span>,{" "}
+                <span className="text-[#98c379]">"Django"</span>
+              ],</div>
+              <div><span className="text-[#61afef]">passionate:</span> <span className="text-[#ff7ab2]">true</span>,</div>
+              <div><span className="text-[#61afef]">motto:</span> <span className="text-[#98c379]">"Build with Purpose"</span></div>
             </div>
             &#125;;
             <br />
             <br />
-            <span className="text-yellow-200">Developer</span>.
-            <span className="text-green-300">showcase</span>();
+            <span className="text-[#e5c07b]">Developer</span>.<span className="text-[#61afef]">showcase</span>();
           </h4>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import React from "react";
 import About from "../assets/Components/About";
 import Contact from "../assets/Components/Contact";
 import Experience from "../assets/Components/Experience";
@@ -6,40 +7,35 @@ import Intro from "../assets/Components/Intro";
 import Navbar from "../assets/Components/Navbar";
 import Project from "../assets/Components/Project";
 import Skill from "../assets/Components/Skill";
-import LiquidEther from "../components/LiquidEther";
 
 function Home() {
   return (
     <>
-      <div className="relative min-h-screen w-full">
-        <div className="fixed inset-0 -z-10 bg-[#060606]">
-          <LiquidEther
-            colors={["#2563eb", "#3b82f6", "#000000"]}
-            mouseForce={20}
-            autoDemo={true}
-          />
-        </div>
-
-        <div className="relative z-10">
+      <div className="relative min-h-screen w-full bg-[#000000] text-[#f5f5f7] overflow-hidden">
+        
+        {/* Apple-like polished container */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
           <Navbar />
-          <section id="intro">
-            <Intro />
-          </section>
-          <section id="about">
-            <About />
-          </section>
-          <section id="experience">
-            <Experience />
-          </section>
-          <section id="skills">
-            <Skill />
-          </section>
-          <section id="projects">
-            <Project />
-          </section>
-          <section id="contact">
-            <Contact />
-          </section>
+          <main>
+            <section id="intro" aria-label="Introduction">
+              <Intro />
+            </section>
+            <section id="about" aria-label="About Me">
+              <About />
+            </section>
+            <section id="experience" aria-label="Work Experience">
+              <Experience />
+            </section>
+            <section id="skills" aria-label="Technical Skills">
+              <Skill />
+            </section>
+            <section id="projects" aria-label="Featured Projects">
+              <Project />
+            </section>
+            <section id="contact" aria-label="Contact Information">
+              <Contact />
+            </section>
+          </main>
           <Footer />
         </div>
       </div>

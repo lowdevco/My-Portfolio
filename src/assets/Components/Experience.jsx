@@ -36,15 +36,15 @@ function Experience() {
   ];
 
   return (
-    <section className="experience-section py-20 px-6 w-[90%] xl:w-[70%] mx-auto">
+    <section className="experience-section py-24 w-full relative z-10">
       <div className="mb-16">
-        <h2 className="text-5xl font-bold text-white tracking-tight">
-          Professional <span className="text-purple-800">Journey</span>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#f5f5f7] tracking-tight">
+          Professional <span className="text-[#A57AFF]">Journey</span>
         </h2>
-        <div className="h-1.5 w-24 bg-purple-800 mt-4 rounded-full" />
+        <div className="h-1.5 w-24 bg-[#A57AFF] mt-6 rounded-full" />
       </div>
 
-      <div className="flex flex-col px-0 md:px-10 lg:px-20">
+      <div className="flex flex-col gap-0">
         {experiences.map((exp, index) => (
           <ExperienceItem key={index} {...exp} />
         ))}

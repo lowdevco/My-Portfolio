@@ -26,7 +26,7 @@ function PhotoCard() {
   return (
     <div className="photo-card-container flex items-center justify-center h-full perspective-2000">
       <div
-        className="photo-card-content overflow-hidden bg-gray-900 rounded-xl w-full max-w-[300px] aspect-[3/4] sm:max-w-[380px] md:max-w-[450px] transition-transform duration-300 ease-out shadow-2xl border border-white/10"
+        className="photo-card-content overflow-hidden bg-[#111113] rounded-3xl w-full max-w-[300px] aspect-[3/4] sm:max-w-[380px] md:max-w-[450px] transition-all duration-300 ease-out shadow-2xl border border-white/5 hover:border-[#A57AFF]/30"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
@@ -36,7 +36,7 @@ function PhotoCard() {
       >
         <img
           src={PFP}
-          alt="Profile"
+          alt="Portrait of Muhammad Irfan"
           className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out cursor-pointer scale-105 hover:scale-100"
           style={{ transform: "translateZ(10px)" }}
         />

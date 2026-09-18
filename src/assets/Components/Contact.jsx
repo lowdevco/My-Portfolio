@@ -1,6 +1,6 @@
 import React from "react";
-import { SiGithub, SiLinkedin, SiInstagram, SiGmail } from "react-icons/si";
-import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { SiGithub, SiLinkedin, SiInstagram, SiGmail, SiFacebook } from "react-icons/si";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "motion/react";
 
 function Contact() {
@@ -42,12 +42,12 @@ function Contact() {
       colSpan: "col-span-1",
     },
     {
-      title: "Phone",
-      value: "+91 7907462335",
-      link: "tel:+917907462335",
-      icon: <FaPhoneAlt className="w-7 h-7" />,
-      color: "hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(34,197,94,0.2)]",
-      textColor: "group-hover:text-purple-400",
+      title: "Facebook",
+      value: "@mhd.iirrfan",
+      link: "https://www.facebook.com/mhd.iirrfan/",
+      icon: <SiFacebook className="w-7 h-7" />,
+      color: "hover:border-[#1877F2]/50 hover:shadow-[0_0_30px_rgba(24,119,242,0.2)]",
+      textColor: "group-hover:text-[#1877F2]",
       colSpan: "col-span-1",
     },
     {
@@ -64,19 +64,20 @@ function Contact() {
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.4, duration: 0.6 }}
-      className="py-24 px-6 w-[90%] xl:w-[70%] mx-auto relative z-10"
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="py-24 w-full relative z-10"
       id="contact"
     >
       <div className="text-center mb-16">
-        <h2 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight">
-          Let's <span className="text-purple-600">Connect</span>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#f5f5f7] tracking-tight">
+          Let's <span className="text-[#A57AFF]">Connect</span>
         </h2>
-        <p className="mt-6 text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+        <p className="mt-6 text-[#86868b] text-lg md:text-xl max-w-2xl mx-auto">
           Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!
         </p>
-        <div className="h-1.5 w-24 bg-purple-600 mt-8 rounded-full mx-auto" />
+        <div className="h-1.5 w-24 bg-[#A57AFF] mt-8 rounded-full mx-auto" />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -84,29 +85,37 @@ function Contact() {
           <motion.a
             key={idx}
             href={item.link}
-            target={item.title === "Email Me" || item.title === "Phone" ? "_self" : "_blank"}
+            target={item.title === "Email Me" || item.title === "Location" ? "_self" : "_blank"}
             rel="noopener noreferrer"
-            initial={{ opacity: 0, scale: 0.9 }}
+            aria-label={`Contact via ${item.title}`}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: idx * 0.1, duration: 0.4 }}
-            whileHover={{ y: -5 }}
-            whileTap={{ scale: 0.98 }}
-            className={`group flex flex-col items-center justify-center p-8 bg-gray-900/40 border border-white/10 rounded-2xl backdrop-blur-md transition-all duration-300 ${item.colSpan} ${item.color}`}
+            transition={{ delay: idx * 0.1, duration: 0.5, ease: "easeOut" }}
+            className={`group relative overflow-hidden flex flex-col justify-between items-start p-8 bg-gradient-to-br from-[#111113] to-[#151518] border border-white/5 rounded-3xl transition-all duration-500 ${item.colSpan} hover:border-[#A57AFF]/40 hover:shadow-[0_0_40px_rgba(165,122,255,0.1)]`}
           >
-            <div className={`mb-4 p-4 rounded-full bg-white/5 border border-white/10 transition-colors duration-300 ${item.textColor}`}>
+            {/* Giant Faint Watermark Icon */}
+            <div className="absolute -bottom-8 -right-8 text-white/[0.02] group-hover:text-[#A57AFF]/[0.05] transition-all duration-700 transform group-hover:scale-110 group-hover:-rotate-12 pointer-events-none">
+              {React.cloneElement(item.icon, { className: "w-48 h-48" })}
+            </div>
+
+            {/* Top-Right Arrow (Appears on Hover) */}
+            <div className="absolute top-8 right-8 text-[#86868b] opacity-0 group-hover:opacity-100 group-hover:text-[#A57AFF] transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500 ease-out z-10">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+
+            {/* Icon (Foreground) */}
+            <div className={`relative z-10 mb-14 p-4 rounded-2xl bg-white/5 border border-white/10 transition-all duration-500 group-hover:bg-[#A57AFF] group-hover:text-black group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(165,122,255,0.4)] text-[#f5f5f7]`} aria-hidden="true">
               {item.icon}
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
-            <p className="text-gray-400 font-medium text-center">{item.value}</p>
             
-            <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2 text-sm font-semibold tracking-wider uppercase">
-              <span className={item.textColor}>
-                {item.title === "Location" ? "View Map" : item.title === "Phone" ? "Call Now" : item.title === "Email Me" ? "Send Email" : "Visit Profile"}
-              </span>
-              <span className={`transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300 ${item.textColor}`}>
-                →
-              </span>
+            {/* Text Content */}
+            <div className="relative z-10 flex flex-col text-left">
+              <h3 className="text-xl md:text-2xl font-bold text-[#f5f5f7] mb-1 tracking-tight group-hover:text-[#A57AFF] transition-colors duration-300">{item.title}</h3>
+              <p className="text-[#86868b] text-sm md:text-base font-medium truncate max-w-full">{item.value}</p>
             </div>
           </motion.a>
         ))}

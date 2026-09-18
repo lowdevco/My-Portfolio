@@ -59,79 +59,85 @@ function Navbar() {
   };
 
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className="fixed top-6 left-1/2 -translate-x-1/2 z-[1000] w-[90%] xl:w-[70%] 
-                    h-16 px-8 flex items-center justify-between
-                    bg-gray-900/40 backdrop-blur-md border border-white/10 
-                    rounded-lg shadow-2xl transition-all duration-300"
+    <motion.header
+      initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} 
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-[1000] w-full max-w-7xl px-6 lg:px-8"
     >
-      <Link to="/" className="text-white font-bold text-xl tracking-tighter cursor-pointer">
-        <span className="text-purple-500">PORTFOLIO</span>
-      </Link>
+      <nav aria-label="Main Navigation" className="w-full h-16 px-6 md:px-8 flex items-center justify-between bg-[#111113]/80 backdrop-blur-md border border-white/5 rounded-full shadow-2xl transition-all duration-300">
+        <Link to="/" className="text-[#f5f5f7] font-extrabold text-xl tracking-tighter cursor-pointer" aria-label="Go to homepage">
+          <span className="text-[#A57AFF]">PORTFOLIO</span>
+        </Link>
 
-      {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-8">
-        {navLinks.map((link) => {
-          const isActive = pathname === "/projects" 
-            ? link.target === "projects" 
-            : activeSection === link.target;
-            
-          return (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link)}
-              className={`relative text-sm font-medium transition-colors group ${
-                isActive ? "text-purple-400" : "text-gray-300 hover:text-white"
-              }`}
-            >
-              {link.name}
-              <span
-                className={`absolute -bottom-1 left-0 h-0.5 bg-purple-500 transition-all duration-300 ${
-                  isActive ? "w-full" : "w-0 group-hover:w-full"
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => {
+            const isActive = pathname === "/projects" 
+              ? link.target === "projects" 
+              : activeSection === link.target;
+              
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link)}
+                aria-current={isActive ? "page" : undefined}
+                className={`relative text-sm font-semibold transition-colors group ${
+                  isActive ? "text-[#A57AFF]" : "text-[#86868b] hover:text-[#f5f5f7]"
                 }`}
-              />
-            </a>
-          );
-        })}
-      </div>
+              >
+                {link.name}
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-[#A57AFF] transition-all duration-300 ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                  aria-hidden="true"
+                />
+              </a>
+            );
+          })}
+        </div>
 
-      {/* Hamburger Icon Mobile Version */}
-      <button
-        className="md:hidden flex flex-col gap-1.5 p-2 z-[1001]"
-        onClick={() => setIsOpen(!isOpen)} 
-      >
-        <span className={`w-6 h-0.5 bg-white transition-all ${isOpen ? "rotate-45 translate-y-2" : ""}`}></span>
-        <span className={`w-6 h-0.5 bg-white transition-all ${isOpen ? "opacity-0" : ""}`}></span>
-        <span className={`w-6 h-0.5 bg-white transition-all ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
-      </button>
+        {/* Hamburger Icon Mobile Version */}
+        <button
+          className="md:hidden flex flex-col gap-1.5 p-2 z-[1001]"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-expanded={isOpen}
+          aria-label="Toggle navigation menu"
+        >
+          <span className={`w-6 h-0.5 bg-[#f5f5f7] transition-all ${isOpen ? "rotate-45 translate-y-2" : ""}`} aria-hidden="true"></span>
+          <span className={`w-6 h-0.5 bg-[#f5f5f7] transition-all ${isOpen ? "opacity-0" : ""}`} aria-hidden="true"></span>
+          <span className={`w-6 h-0.5 bg-[#f5f5f7] transition-all ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} aria-hidden="true"></span>
+        </button>
 
-      {/* Mobile Menu List */}
-      <div
-        className={`absolute top-20 left-0 w-full bg-gray-900/90 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300 md:hidden ${
-          isOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-5"
-        }`}
-      >
-        {navLinks.map((link) => {
-          const isActive = pathname === "/projects" 
-            ? link.target === "projects" 
-            : activeSection === link.target;
-            
-          return (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link)}
-              className={`text-lg font-medium border-b border-white/5 pb-2 ${
-                isActive ? "text-purple-400" : "text-gray-300 hover:text-purple-500"
-              }`}
-            >
-              {link.name}
-            </a>
-          );
-        })}
-      </div>
-    </motion.nav>
+        {/* Mobile Menu List */}
+        <div
+          className={`absolute top-20 left-0 w-full bg-[#111113]/90 backdrop-blur-lg border border-white/5 rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300 md:hidden ${
+            isOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-5"
+          }`}
+          aria-hidden={!isOpen}
+        >
+          {navLinks.map((link) => {
+            const isActive = pathname === "/projects" 
+              ? link.target === "projects" 
+              : activeSection === link.target;
+              
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link)}
+                aria-current={isActive ? "page" : undefined}
+                className={`text-lg font-medium border-b border-white/5 pb-2 ${
+                  isActive ? "text-[#A57AFF]" : "text-[#86868b] hover:text-[#A57AFF]"
+                }`}
+              >
+                {link.name}
+              </a>
+            );
+          })}
+        </div>
+      </nav>
+    </motion.header>
   );
 }
 

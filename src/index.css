@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -15,11 +17,13 @@ p {
 }
 
 body {
-  background-color: black;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0d0614; /* Deep Premium Purple */
+  color: white;
 }
 
 * a {
-  tetx-decoration: none;
+  text-decoration: none;
   color: white;
 }
 
