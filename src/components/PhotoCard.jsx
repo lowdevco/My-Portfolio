@@ -37,6 +37,8 @@ function PhotoCard() {
         <img
           src={PFP}
           alt="Portrait of Muhammad Irfan"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out cursor-pointer scale-105 hover:scale-100"
           style={{ transform: "translateZ(10px)" }}
         />

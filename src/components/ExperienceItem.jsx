@@ -18,7 +18,7 @@ function ExperienceItem({ company, role, duration, description, skills }) {
         <time className="text-[#A57AFF] font-mono text-sm md:text-sm font-semibold tracking-widest uppercase mb-1">
           {duration}
         </time>
-        <h4 className="text-xl md:text-2xl font-bold text-[#f5f5f7]">{company}</h4>
+        <div className="text-xl md:text-2xl font-bold text-[#f5f5f7]">{company}</div>
       </div>
 
       {/* Right side: Role, Description, Skills */}

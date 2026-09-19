@@ -20,11 +20,12 @@ function Project() {
           </h2>
           <div className="h-1.5 w-24 bg-[#A57AFF] mt-6 rounded-full mx-auto lg:mx-0" />
         </div>
-        <Link to="/projects">
-          <button className="px-6 py-3 rounded-full bg-[#111113] text-[#f5f5f7] border border-white/10 hover:border-[#A57AFF]/50 hover:text-[#A57AFF] transition-all duration-300 font-semibold tracking-wide shadow-lg flex items-center gap-2 group">
-            View All Projects 
-            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-          </button>
+        <Link 
+          to="/projects"
+          className="px-6 py-3 rounded-full bg-[#111113] text-[#f5f5f7] border border-white/10 hover:border-[#A57AFF]/50 hover:text-[#A57AFF] transition-all duration-300 font-semibold tracking-wide shadow-lg flex items-center gap-2 group cursor-pointer"
+        >
+          View All Projects 
+          <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
         </Link>
       </div>
 

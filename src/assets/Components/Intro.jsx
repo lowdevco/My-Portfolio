@@ -68,41 +68,37 @@ function Intro() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
+              className="p-3.5 rounded-2xl bg-[#1d1d1f] border border-white/5 text-[#f5f5f7] hover:bg-[#2d2d2f] transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center"
             >
-              <button className="p-3.5 rounded-2xl bg-[#1d1d1f] border border-white/5 text-[#f5f5f7] hover:bg-[#2d2d2f] transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98]">
-                <FaGithub size={22} aria-hidden="true" />
-              </button>
+              <FaGithub size={22} aria-hidden="true" />
             </a>
             <a
               href="https://www.linkedin.com/in/muhammadirfank/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
+              className="p-3.5 rounded-2xl bg-[#1d1d1f] border border-white/5 text-[#f5f5f7] hover:bg-[#2d2d2f] transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center"
             >
-              <button className="p-3.5 rounded-2xl bg-[#1d1d1f] border border-white/5 text-[#f5f5f7] hover:bg-[#2d2d2f] transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98]">
-                <FaLinkedin size={22} aria-hidden="true" />
-              </button>
+              <FaLinkedin size={22} aria-hidden="true" />
             </a>
           </div>
 
           <div className="intro-buttons flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-6">
             <button
               onClick={() => scroll("contact")}
-              className="w-full sm:w-auto py-4 px-8 bg-[#f5f5f7] hover:bg-white text-black font-semibold rounded-2xl transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full sm:w-auto py-4 px-8 bg-[#f5f5f7] hover:bg-white text-black font-semibold rounded-2xl transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98] min-h-[48px] min-w-[48px] flex items-center justify-center"
             >
               Contact Me
             </button>
 
-            <button className="w-full sm:w-auto bg-[#1d1d1f] hover:bg-[#2d2d2f] text-[#f5f5f7] font-semibold rounded-2xl border border-white/5 transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98]">
-              <a
-                href={resumeFile}
-                download="Irfan-Resume.pdf"
-                className="flex items-center justify-center gap-2 w-full h-full py-4 px-8"
-              >
-                Get Resume
-                <FaDownload size={14} />
-              </a>
-            </button>
+            <a
+              href={resumeFile}
+              download="Irfan-Resume.pdf"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 py-4 px-8 bg-[#1d1d1f] hover:bg-[#2d2d2f] text-[#f5f5f7] font-semibold rounded-2xl border border-white/5 transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98] min-h-[48px] min-w-[48px]"
+            >
+              Get Resume
+              <FaDownload size={14} aria-hidden="true" />
+            </a>
           </div>
         </div>
 

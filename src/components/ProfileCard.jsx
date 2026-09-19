@@ -38,7 +38,7 @@ function ProfileCard() {
             <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
             <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
           </div>
-          <h4 className="text-[#f5f5f7] text-xs sm:text-sm md:text-[15px]">
+          <div className="text-[#f5f5f7] text-xs sm:text-sm md:text-[15px]">
             <span className="text-[#ff7ab2]">const</span>{" "}
             <span className="text-[#e5c07b]">Developer</span> = &#123;
             <br />
@@ -57,7 +57,7 @@ function ProfileCard() {
             <br />
             <br />
             <span className="text-[#e5c07b]">Developer</span>.<span className="text-[#61afef]">showcase</span>();
-          </h4>
+          </div>
         </div>
       </div>
     </div>

@@ -43,9 +43,9 @@ function ProjectCard({ title, description, tags, link, github, image }) {
         <div className={`transform translate-y-16 group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col ${isTouched ? '!translate-y-0' : ''}`}>
           
           {/* Title */}
-          <h3 className={`text-3xl md:text-4xl font-extrabold text-[#f5f5f7] mb-3 tracking-tight group-hover:text-[#A57AFF] transition-colors duration-300 drop-shadow-md ${isTouched ? '!text-[#A57AFF]' : ''}`}>
+          <h2 className={`text-3xl md:text-4xl font-extrabold text-[#f5f5f7] mb-3 tracking-tight group-hover:text-[#A57AFF] transition-colors duration-300 drop-shadow-md ${isTouched ? '!text-[#A57AFF]' : ''}`}>
             {title}
-          </h3>
+          </h2>
           
           {/* Description */}
           <p className="text-[#a1a1a6] text-[15px] md:text-base leading-relaxed line-clamp-2 md:line-clamp-3 mb-6">
@@ -60,7 +60,7 @@ function ProjectCard({ title, description, tags, link, github, image }) {
               rel="noopener noreferrer"
               aria-label={`View ${title} source code on GitHub`}
               onClick={(e) => e.stopPropagation()}
-              className="flex items-center justify-center gap-2 px-4 py-3.5 bg-white/10 hover:bg-white text-[#f5f5f7] hover:text-black backdrop-blur-md text-sm font-bold rounded-2xl transition-all duration-300 border border-white/10"
+              className="flex items-center justify-center gap-2 px-4 py-3.5 bg-white/10 hover:bg-white text-[#f5f5f7] hover:!text-black backdrop-blur-md text-sm font-bold rounded-2xl transition-all duration-300 border border-white/10"
             >
               <SiGithub size={18} aria-hidden="true" />
               GitHub

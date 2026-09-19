@@ -1,20 +1,23 @@
-# Muhammad Irfan - Full Stack Developer
+# Muhammad Irfan
 
-I am Muhammad Irfan, a passionate Full Stack Developer based in Kerala, India. I specialize in building high-performance, user-centric web applications.
+> Full Stack Developer based in Kerala, India.
+
+I am Muhammad Irfan, a passionate Full Stack Developer specializing in building high-performance, user-centric web applications.
 
 ## Technical Skills
+
 - Frontend: React, JavaScript, Tailwind CSS, Bootstrap, jQuery
 - Backend & Database: Python, Django, Node.js, MySQL, SQLite
 - Developer Tools: Git, VS Code, Postman, Figma
 
 ## Professional Experience
-- Python Full Stack Developer at Xeventure IT Solutions (July 2026 - Present): Designed and deployed production-grade applications using Python, Django, and React.
-- Full Stack Development Intern at Xeventure IT Solutions (May 2026 - July 2026): Built billing and maintenance web applications.
 
-## Contact Information
-- Email: muhammadirfank2007@gmail.com
-- GitHub: https://github.com/lowdevco
-- LinkedIn: https://www.linkedin.com/in/muhammadirfank/
-- Portfolio: https://lowdevco.vercel.app/
+- Python Full Stack Developer at Xeventure IT Solutions (July 2026 - Present)
+- Full Stack Development Intern at Xeventure IT Solutions (May 2026 - July 2026)
 
-This site serves as my digital portfolio showcasing my projects, technical stack, and professional journey.
+## Contact & Links
+
+- [Portfolio](https://lowdevco.vercel.app/): Main portfolio website.
+- [GitHub](https://github.com/lowdevco): Open source projects and code.
+- [LinkedIn](https://www.linkedin.com/in/muhammadirfank/): Professional network.
+- [Email](mailto:muhammadirfank2007@gmail.com): Contact directly via email.

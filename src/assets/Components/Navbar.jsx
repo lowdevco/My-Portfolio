@@ -99,7 +99,7 @@ function Navbar() {
 
         {/* Hamburger Icon Mobile Version */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2 z-[1001]"
+          className="md:hidden flex flex-col gap-1.5 p-3 min-w-[48px] min-h-[48px] justify-center items-center z-[1001]"
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label="Toggle navigation menu"
