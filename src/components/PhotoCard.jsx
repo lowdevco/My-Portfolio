@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PFP from "../assets/image/Photo.png";
+import PFP from "../assets/image/Photo.webp";
 
 function PhotoCard() {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });

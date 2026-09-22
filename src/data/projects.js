@@ -1,11 +1,11 @@
-import promyc from "../assets/image/project/promyc.png";
-import MovieBox from "../assets/image/project/movie.png";
-import weather from "../assets/image/project/weather.png";
-import orgado from "../assets/image/project/orgado.png";
-import xeflow from "../assets/image/project/xeflow.png";
-import resoniq from "../assets/image/project/resoniq.png";
-import dailydish from "../assets/image/project/dailydish.png";
-import eclat from "../assets/image/project/eclat.png";
+import promyc from "../assets/image/project/promyc.webp";
+import MovieBox from "../assets/image/project/movie.webp";
+import weather from "../assets/image/project/weather.webp";
+import orgado from "../assets/image/project/orgado.webp";
+import xeflow from "../assets/image/project/xeflow.webp";
+import resoniq from "../assets/image/project/resoniq.webp";
+import dailydish from "../assets/image/project/dailydish.webp";
+import eclat from "../assets/image/project/eclat.webp";
 
 // HOW TO SELECT FEATURED PROJECTS FOR THE HOME PAGE:
 

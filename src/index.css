@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -18,7 +17,7 @@ p {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #0d0614; /* Deep Premium Purple */
+  background-color: #0d0614; 
   color: white;
 }
 
