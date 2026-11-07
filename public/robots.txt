@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://lowdevco.vercel.app/sitemap.xml
+Agentmap: https://lowdevco.vercel.app/.well-known/ard.json

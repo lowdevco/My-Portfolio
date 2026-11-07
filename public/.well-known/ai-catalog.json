@@ -1,27 +1,25 @@
 {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "specVersion": "1.0",
   "host": {
-    "displayName": "Muhammad Irfan (lowdevco) Portfolio",
-    "description": "Full Stack Developer portfolio showcasing projects, open-source work, and development capabilities."
+    "displayName": "Muhammad Irfan (lowdevco)",
+    "documentationUrl": "https://lowdevco.vercel.app/llms.txt"
   },
   "entries": [
     {
-      "identifier": "urn:portfolio:agent:lowdevco",
+      "identifier": "urn:air:lowdevco.vercel.app:skills:portfolio",
       "displayName": "Muhammad Irfan Portfolio Capabilities",
-      "type": "text/markdown",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
       "url": "https://lowdevco.vercel.app/llms.txt",
       "description": "Explore the developer portfolio, GitHub repositories, technical skills, and experience of Muhammad Irfan (lowdevco).",
+      "version": "1.0.0",
       "tags": [
-        "lowdevco",
         "portfolio",
-        "full-stack-developer",
+        "developer",
         "react",
         "python",
         "django",
-        "github",
-        "projects",
-        "resume",
-        "skills"
+        "projects"
       ],
       "capabilities": [
         "FetchProjects",
@@ -34,7 +32,8 @@
         "Fetch Muhammad Irfan's resume and technical skills.",
         "What are lowdevco's core technologies and frameworks?",
         "How can I contact Muhammad Irfan for opportunities?"
-      ]
+      ],
+      "updatedAt": "2026-11-07T00:00:00Z"
     }
   ]
 }
