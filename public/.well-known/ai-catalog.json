@@ -1,20 +1,23 @@
 {
   "specVersion": "1.0",
   "host": {
-    "displayName": "Lowdevco Portfolio",
-    "description": "Personal portfolio for Lowdevco, showcasing projects, open-source contributions, and technical skills."
+    "displayName": "Muhammad Irfan (lowdevco) Portfolio",
+    "description": "Full Stack Developer portfolio showcasing projects, open-source work, and development capabilities."
   },
   "entries": [
     {
       "identifier": "urn:portfolio:agent:lowdevco",
-      "displayName": "Lowdevco Developer Capabilities",
-      "type": "application/openapi+json",
-      "url": "https://lowdevco.vercel.app/openapi.json",
-      "description": "Explore the developer portfolio, GitHub repositories, and skills of Lowdevco.",
+      "displayName": "Muhammad Irfan Portfolio Capabilities",
+      "type": "text/markdown",
+      "url": "https://lowdevco.vercel.app/llms.txt",
+      "description": "Explore the developer portfolio, GitHub repositories, technical skills, and experience of Muhammad Irfan (lowdevco).",
       "tags": [
         "lowdevco",
         "portfolio",
-        "developer",
+        "full-stack-developer",
+        "react",
+        "python",
+        "django",
         "github",
         "projects",
         "resume",
@@ -24,13 +27,13 @@
         "FetchProjects",
         "GetGithubStats",
         "CheckAvailability",
-        "ContactLowdevco"
+        "ContactDeveloper"
       ],
       "representativeQueries": [
         "What projects has lowdevco built?",
-        "Fetch lowdevco's GitHub contributions and repositories.",
-        "What are lowdevco's core technical skills?",
-        "How can I contact lowdevco?"
+        "Fetch Muhammad Irfan's resume and technical skills.",
+        "What are lowdevco's core technologies and frameworks?",
+        "How can I contact Muhammad Irfan for opportunities?"
       ]
     }
   ]
