@@ -1,49 +1,50 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import PFP from "../assets/image/Photo.webp";
+import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 
 function PhotoCard() {
-  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+  const ref = useRef(null);
 
-  const handleMouseMove = (e) => {
-    const card = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - card.left;
-    const y = e.clientY - card.top;
-
-    const centerX = card.width / 2;
-    const centerY = card.height / 2;
-
-   
-    const rotateX = (y - centerY) / 25;
-    const rotateY = (centerX - x) / 25;
-
-    setRotate({ x: rotateX, y: rotateY });
-  };
-
-  const handleMouseLeave = () => {
-    setRotate({ x: 0, y: 0 });
-  };
+  useGSAP(
+    () => {
+      gsap.matchMedia().add(MOTION_OK, () => {
+        const frame = ref.current.querySelector("[data-frame]");
+        gsap
+          .timeline({ scrollTrigger: { trigger: frame, start: "top 80%", once: true } })
+          .from(frame, { clipPath: "inset(100% 0 0 0)", duration: 1.4, ease: "expo.inOut" })
+          .from("img", { scale: 1.4, duration: 1.8, ease: "expo.out" }, 0.2);
+        gsap.to("img", {
+          yPercent: -10,
+          ease: "none",
+          scrollTrigger: { trigger: frame, start: "top bottom", end: "bottom top", scrub: true },
+        });
+      });
+    },
+    { scope: ref },
+  );
 
   return (
-    <div className="photo-card-container flex items-center justify-center h-full perspective-2000">
+    <figure ref={ref} className="w-full max-w-[460px] mx-auto lg:mx-0">
       <div
-        className="photo-card-content overflow-hidden bg-[#111113] rounded-3xl w-full max-w-[300px] aspect-[3/4] sm:max-w-[380px] md:max-w-[450px] transition-all duration-300 ease-out shadow-2xl border border-white/5 hover:border-[#A57AFF]/30"
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
-          transformStyle: "preserve-3d",
-        }}
+        data-frame
+        className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-line bg-surface"
       >
         <img
           src={PFP}
           alt="Portrait of Muhammad Irfan"
           loading="lazy"
           decoding="async"
-          className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out cursor-pointer scale-105 hover:scale-100"
-          style={{ transform: "translateZ(10px)" }}
+          className="absolute inset-0 h-[115%] w-full object-cover grayscale transition-[filter] duration-700 group-hover:grayscale-0"
         />
+        <span className="absolute left-3 top-3 font-mono text-[10px] uppercase tracking-[0.18em] text-fg/80 mix-blend-difference">
+          [ irfan.webp ]
+        </span>
       </div>
-    </div>
+      <figcaption className="label mt-4 flex justify-between">
+        <span>Fig. 01</span>
+        <span>Kerala, India</span>
+      </figcaption>
+    </figure>
   );
 }
 

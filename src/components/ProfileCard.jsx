@@ -1,65 +1,83 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
+import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
+import WindowBar from "@/components/WindowBar";
+
+const C = {
+  kw: "text-[#ff7ab2]",
+  ty: "text-[#e5c07b]",
+  key: "text-[#7dd3fc]",
+  str: "text-[#a6e3a1]",
+  fn: "text-accent",
+  p: "text-fg/60",
+};
+
+const LINES = [
+  [["kw", "class "], ["ty", "Developer"], ["p", ":"]],
+  [["key", "    name"], ["p", " = "], ["str", '"Muhammad Irfan"']],
+  [["key", "    role"], ["p", " = "], ["str", '"Full Stack Developer"']],
+  [["key", "    stack"], ["p", " = ["], ["str", '"Python"'], ["p", ", "], ["str", '"Django"'], ["p", ", "], ["str", '"React"'], ["p", "]"]],
+  [["key", "    location"], ["p", " = "], ["str", '"Kerala, IN"']],
+  [["key", "    available"], ["p", " = "], ["kw", "True"]],
+  [],
+  [["kw", "    def "], ["fn", "ship"], ["p", "("], ["key", "self"], ["p", ") -> "], ["ty", "str"], ["p", ":"]],
+  [["kw", "        return "], ["str", '"Build with purpose"']],
+  [],
+  [["kw", "if "], ["key", "__name__"], ["p", " == "], ["str", '"__main__"'], ["p", ":"]],
+  [["p", "    "], ["ty", "Developer"], ["p", "()."], ["fn", "ship"], ["p", "()"]],
+];
 
 function ProfileCard() {
-  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+  const ref = useRef(null);
 
-  const handleMouseMove = (e) => {
-    const card = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - card.left;
-    const y = e.clientY - card.top;
-
-    const centerX = card.width / 2;
-    const centerY = card.height / 2;
-
-  
-    const rotateX = (y - centerY) / 20;
-    const rotateY = (centerX - x) / 20;
-
-    setRotate({ x: rotateX, y: rotateY });
-  };
+  useGSAP(() => {
+    gsap.matchMedia().add(`(pointer: fine) and ${MOTION_OK}`, () => {
+      const el = ref.current;
+      gsap.set(el, { transformPerspective: 1000 });
+      const rx = gsap.quickTo(el, "rotationX", { duration: 0.8, ease: "power3" });
+      const ry = gsap.quickTo(el, "rotationY", { duration: 0.8, ease: "power3" });
+      const move = (e) => {
+        const r = el.getBoundingClientRect();
+        rx(((e.clientY - r.top) / r.height - 0.5) * -8);
+        ry(((e.clientX - r.left) / r.width - 0.5) * 8);
+      };
+      const leave = () => {
+        rx(0);
+        ry(0);
+      };
+      el.addEventListener("pointermove", move);
+      el.addEventListener("pointerleave", leave);
+      return () => {
+        el.removeEventListener("pointermove", move);
+        el.removeEventListener("pointerleave", leave);
+      };
+    });
+  });
 
   return (
-    <div className="perspective-1000 w-full flex justify-center">
-      <div
-        className="profile-card bg-[#111113] border border-white/5 rounded-3xl p-6 sm:p-8 transition-all duration-300 ease-out shadow-2xl w-full max-w-[480px]"
-        onMouseMove={handleMouseMove}
-        onMouseLeave={() => setRotate({ x: 0, y: 0 })}
-        style={{
-          transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
-          transformStyle: "preserve-3d",
-        }}
-      >
-        <div
-          className="profile-content font-mono leading-relaxed tracking-tight"
-          style={{ transform: "translateZ(30px)" }}
-        >
-          <div className="flex gap-2 mb-6">
-            <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-            <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-          </div>
-          <div className="text-[#f5f5f7] text-xs sm:text-sm md:text-[15px]">
-            <span className="text-[#ff7ab2]">const</span>{" "}
-            <span className="text-[#e5c07b]">Developer</span> = &#123;
-            <br />
-            <div className="pl-6 mt-2 space-y-1">
-              <div><span className="text-[#61afef]">name:</span> <span className="text-[#98c379]">"Muhammad Irfan"</span>,</div>
-              <div><span className="text-[#61afef]">role:</span> <span className="text-[#98c379]">"Full Stack Developer"</span>,</div>
-              <div><span className="text-[#61afef]">skills:</span> [
-                <span className="text-[#98c379]">"Python"</span>,{" "}
-                <span className="text-[#98c379]">"React"</span>,{" "}
-                <span className="text-[#98c379]">"Django"</span>
-              ],</div>
-              <div><span className="text-[#61afef]">passionate:</span> <span className="text-[#ff7ab2]">true</span>,</div>
-              <div><span className="text-[#61afef]">motto:</span> <span className="text-[#98c379]">"Build with Purpose"</span></div>
-            </div>
-            &#125;;
-            <br />
-            <br />
-            <span className="text-[#e5c07b]">Developer</span>.<span className="text-[#61afef]">showcase</span>();
-          </div>
-        </div>
-      </div>
+    <div
+      ref={ref}
+      className="w-full overflow-hidden rounded-2xl border border-line bg-surface/80 backdrop-blur-md shadow-[0_40px_120px_-40px_rgba(165,122,255,0.35)]"
+    >
+      <WindowBar title="developer.py" meta="UTF-8 · Python" />
+
+      <pre className="overflow-x-auto p-5 font-mono text-[12px] sm:text-[13px] lg:text-[12px] xl:text-[13px] leading-[1.9]">
+        <code>
+          {LINES.map((tokens, i) => (
+            <span key={i} data-code-line className="flex">
+              <span className="w-8 shrink-0 select-none text-muted/50" aria-hidden="true">
+                {i + 1}
+              </span>
+              <span className={i === LINES.length - 1 ? "caret" : ""}>
+                {tokens.map(([c, t], j) => (
+                  <span key={j} className={C[c]}>
+                    {t}
+                  </span>
+                ))}
+              </span>
+            </span>
+          ))}
+        </code>
+      </pre>
     </div>
   );
 }

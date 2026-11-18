@@ -1,61 +1,47 @@
-import React, { useState } from "react";
+import React from "react";
 
-function ExperienceItem({ company, role, duration, description, skills }) {
-  const [isTouched, setIsTouched] = useState(false);
-
+function ExperienceItem({ hash, head, company, role, duration, description, skills }) {
   return (
-    <article 
-      onClick={() => setIsTouched(!isTouched)}
-      onMouseLeave={() => setIsTouched(false)}
-      className="group relative grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-10 md:py-14 border-t border-white/10 first:border-transparent transition-all duration-500 hover:bg-gradient-to-r hover:from-[#A57AFF]/10 hover:via-transparent hover:to-transparent px-4 md:px-8 -mx-4 md:-mx-8 rounded-3xl overflow-hidden cursor-pointer"
-    >
-      
-      {/* Animated Left Accent Line */}
-      <div className={`absolute left-0 top-8 bottom-8 w-1.5 bg-[#A57AFF] rounded-r-full opacity-0 scale-y-0 group-hover:opacity-100 group-hover:scale-y-100 transition-all duration-500 ease-out shadow-[0_0_20px_rgba(165,122,255,0.8)] ${isTouched ? '!opacity-100 !scale-y-100' : ''}`} />
+    <li data-reveal className="relative grid gap-6 border-t border-line py-12 pl-10 md:grid-cols-12 md:gap-10 md:pl-14">
+      <span
+        className={`absolute left-[-4.5px] top-[3.4rem] size-2.5 rounded-full border-2 border-bg ${head ? "bg-accent" : "bg-muted"}`}
+        aria-hidden="true"
+      />
 
-      {/* Left side: Duration & Company */}
-      <div className={`md:col-span-4 flex flex-col gap-2 md:mt-1 transition-transform duration-500 ease-out group-hover:translate-x-3 ${isTouched ? '!translate-x-3' : ''}`}>
-        <time className="text-[#A57AFF] font-mono text-sm md:text-sm font-semibold tracking-widest uppercase mb-1">
-          {duration}
-        </time>
-        <div className="text-xl md:text-2xl font-bold text-[#f5f5f7]">{company}</div>
+      <div className="md:col-span-4 font-mono text-sm">
+        <p className="text-accent">
+          commit {hash}
+          {head && <span className="ml-2 text-ok">(HEAD → main)</span>}
+        </p>
+        <p className="mt-2 text-muted">
+          <time>{duration}</time>
+        </p>
+        <p className="mt-4 font-sans text-lg font-medium text-fg">{company}</p>
       </div>
 
-      {/* Right side: Role, Description, Skills */}
-      <div className="md:col-span-8 flex flex-col">
-        <h3 className={`text-2xl md:text-3xl font-extrabold tracking-tight mb-6 transition-all duration-500 ease-out text-[#f5f5f7] group-hover:text-[#A57AFF] group-hover:translate-x-3 ${isTouched ? '!text-[#A57AFF] !translate-x-3' : ''}`}>
-          {role}
-        </h3>
+      <div className="md:col-span-8">
+        <h3 className="text-[clamp(1.6rem,3vw,2.5rem)] font-semibold leading-tight tracking-[-0.03em]">{role}</h3>
 
-        <div className="text-[#86868b] leading-relaxed text-[15px] md:text-lg mb-8">
-          {Array.isArray(description) ? (
-            <ul className="flex flex-col gap-4">
-              {description.map((desc, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <span className="text-[#A57AFF]/60 mt-1.5 text-[14px]" aria-hidden="true">
-                    ✦
-                  </span>
-                  <span className="flex-1">{desc}</span>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>{description}</p>
-          )}
-        </div>
-
-        <div className="flex flex-wrap gap-2 md:gap-3 mt-auto" aria-label="Skills used">
-          {skills.map((skill, index) => (
-            <span
-              key={index}
-              className="px-4 py-1.5 text-xs font-semibold tracking-wide rounded-full bg-[#A57AFF]/10 text-[#A57AFF] border border-[#A57AFF]/20 transition-all hover:bg-[#A57AFF]/20"
-            >
-              {skill}
-            </span>
+        <ul className="mt-6 space-y-3 text-muted leading-relaxed">
+          {description.map((d, i) => (
+            <li key={i} className="flex gap-3">
+              <span className="font-mono text-ok select-none" aria-hidden="true">
+                +
+              </span>
+              <span>{d}</span>
+            </li>
           ))}
-        </div>
+        </ul>
+
+        <ul className="mt-7 flex flex-wrap gap-2" aria-label="Skills used">
+          {skills.map((s) => (
+            <li key={s} className="rounded-full border border-line px-3 py-1 font-mono text-[11px] text-fg/80">
+              {s}
+            </li>
+          ))}
+        </ul>
       </div>
-    </article>
+    </li>
   );
 }
 
