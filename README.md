@@ -48,6 +48,10 @@ This is my personal developer portfolio — a clean, responsive web app that hig
       <td align="center"><b>Contact</b></td>
       <td align="center">Ways to get in touch with me</td>
     </tr>
+    <tr>
+      <td align="center"><b>Terminal</b></td>
+      <td align="center">Get to know the Developer way</td>
+    </tr>
   </tbody>
 </table>
 
